@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Three Decades of the AFL — A Visual Story (1990 to 2025)</title>
+  <meta name="author" content="Muaaz Khan">
+  <meta name="description" content="A Vega-Lite visualisation of 35 seasons of AFL football: where the clubs live, who has won what, how the game has changed.">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.30.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.21.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="kicker">A Data Visualisation 2 Story <span class="dot">&middot;</span> FIT2179</p>
+    <h1 class="title">Three Decades of <span class="accent">The Footy</span></h1>
+    <p class="subtitle">Thirty-five seasons of the Australian Football League, 1990 to 2025, drawn from <strong>6,872 matches</strong> across <strong>43 venues</strong> and <strong>18 clubs</strong>.</p>
+    <p class="byline">By Muaaz Khan (34445811) <span class="dot">&middot;</span> Monash University, May 2026</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- ===================================================================
+       SECTION 1 — Where the AFL lives
+       =================================================================== -->
+  <section id="where" class="section">
+    <p class="section-num">01</p>
+    <h2 class="section-title">Where the AFL lives</h2>
+    <p class="lede">
+      Despite the &ldquo;national league&rdquo; branding, the AFL still has a centre of gravity firmly on the south-east coast.
+      Of the 18 clubs in the competition, <strong>ten share a single city</strong>. The chart below pairs two linked views: a choropleth of Australia shaded by the total wins won by clubs based in each state, and a horizontal bar chart breaking those totals down by individual club, coloured to match.
+    </p>
+    <figure class="chart big-chart" id="chart-01"></figure>
+    <p class="caption">
+      Top panel: each state is shaded by the total wins of its clubs since 1990 — Victoria is the obvious centre of gravity. Bottom panel: every club ranked by wins, colour matches the state above. Hover any state or bar for the full breakdown.
+    </p>
+
+    <p class="lede space-top">
+      The competition was not always this spread out. The stacked area below shows where matches were played each season &mdash; a slow tilt out of Victoria, with new bands of orange (Queensland) and dark blue (NSW) appearing as clubs were granted into Brisbane (1987), Adelaide (1991), Fremantle (1995), Port Adelaide (1997), Gold Coast (2011) and Greater Western Sydney (2012).
+    </p>
+    <figure class="chart" id="chart-10"></figure>
+    <p class="caption">
+      Host state of every AFL match by season. The spike in Queensland in 2020 is the COVID hub: most Victorian clubs relocated to Brisbane for the back half of the season.
+    </p>
+  </section>
+
+  <!-- ===================================================================
+       SECTION 2 — Champions of the modern era
+       =================================================================== -->
+  <section id="champions" class="section">
+    <p class="section-num">02</p>
+    <h2 class="section-title">Champions of the modern era</h2>
+    <p class="lede">
+      Two trophies define an AFL season: the <strong>Premiership Cup</strong> for the winning club, and the <strong>Brownlow Medal</strong> for the player judged best and fairest. The lane chart below puts every premier on a timeline. Click a club in the legend to highlight its years of glory.
+    </p>
+    <figure class="chart big-chart" id="chart-02"></figure>
+    <p class="caption">
+      One coloured square per Grand Final win. Hawthorn&rsquo;s three-peat (2013-15) and Brisbane&rsquo;s (2001-03) stand out as the only true dynasties of the era; the most recent back-to-back belongs to Brisbane again, in 2024 and 2025.
+    </p>
+
+    <div class="grid two-col">
+      <div>
+        <h3 class="sub-title">Total premierships per club</h3>
+        <figure class="chart" id="chart-03"></figure>
+      </div>
+    </div>
+    <p class="caption">
+      Bar + dot strip: a faded bar shows the total count, and one coloured dot per premiership sits along the bar in chronological order. Hover any dot for the year and the result.
+    </p>
+
+    <h3 class="sub-title space-top">The Brownlow leaderboard &mdash; every medallist 1990 to 2025</h3>
+    <figure class="chart big-chart" id="chart-04"></figure>
+    <p class="caption">
+      All 40 medallists (including the 1996, 2003 and 2012 ties) ranked by votes received. Combined idiom: bar (length = votes) + colour (club) + text label. Patrick Cripps tops the chart with his record-breaking 45 votes in 2024; Matt Rowell's 2025 winning total of 39 is the second highest. Hover any bar for the full result.
+    </p>
+
+    <h3 class="sub-title space-top">The Grand Final scoreboard, 1990 - 2025</h3>
+    <figure class="chart" id="chart-05"></figure>
+    <p class="caption">
+      Two lines per season: the winning side in navy, the runner-up in maroon. The shaded band is the margin. Grand Finals have ranged from a 4-point Sydney heart-stopper (2005) to a 119-point Richmond demolition of GWS (2019).
+    </p>
+  </section>
+
+  <!-- ===================================================================
+       SECTION 3 — Reading the ladder
+       =================================================================== -->
+  <section id="ladder" class="section">
+    <p class="section-num">03</p>
+    <h2 class="section-title">Reading the ladder</h2>
+    <p class="lede">
+      The final ladder is a club&rsquo;s annual report card. The grid below stacks 35 years of report cards side by side, one tile per club. The y axis is inverted: line near the top of a tile is a top-of-the-ladder season; line near the bottom is the wooden spoon. The gold-ringed dots mark premiership years.
+    </p>
+    <figure class="chart big-chart" id="chart-06"></figure>
+    <p class="caption">
+      Sustained excellence looks like Geelong&rsquo;s slow plateau near the top. A rebuild looks like North Melbourne&rsquo;s long sag after 2016. Newer clubs (Gold Coast, GWS) only start when they debuted, leaving blank space on the left.
+    </p>
+
+    <h3 class="sub-title space-top">Head-to-head, 1990 - 2025</h3>
+    <p class="lede">
+      For every pair of clubs (A, B), the cell is the number of times A beat B across all 35 seasons. Read a row to see who a club has dominated; read a column to see who has dominated <em>them</em>.
+    </p>
+    <figure class="chart big-chart" id="chart-07"></figure>
+    <p class="caption">
+      Diagonal is blank (a club never plays itself). The deepest blues belong to long-running rivalries: Geelong&nbsp;v&nbsp;Hawthorn, Collingwood&nbsp;v&nbsp;Carlton, Essendon&nbsp;v&nbsp;Richmond. New clubs (Gold Coast row and column) are still building a track record.
+    </p>
+  </section>
+
+  <!-- ===================================================================
+       SECTION 4 — The travelling circus
+       =================================================================== -->
+  <section id="travel" class="section">
+    <p class="section-num">04</p>
+    <h2 class="section-title">The travelling circus</h2>
+    <p class="lede">
+      An AFL season is a freight problem. Each non-Victorian club spends most of its &ldquo;away&rdquo; rounds flying east; each Victorian club takes annual trips west, north and across the Bass Strait. The map below shows how far each club <em>actually flew</em> in 2025, calculated by adding the great-circle distance from the club&rsquo;s home city to every venue it played at that season.
+    </p>
+    <figure class="chart big-chart" id="chart-08"></figure>
+    <p class="caption">
+      Bigger and darker circles flew further. Fremantle and West Coast (both based in Perth) and the Gold Coast Suns lead the table, as expected. Victorian clubs sit on or near each other in Melbourne, where their bubble sizes overlap.
+    </p>
+
+    <h3 class="sub-title space-top">Does travel hurt performance?</h3>
+    <p class="lede">
+      One dot is one team-season. A long-flying season is plotted to the right; a top finish is up near the top. The dashed line is a linear fit across every team-season since 1990: the slope is gentle but real &mdash; more kilometres tends to coincide with a worse ladder finish.
+    </p>
+    <figure class="chart" id="chart-09"></figure>
+    <p class="caption">
+      The relationship is far from deterministic. West Coast&rsquo;s 2018 flag and Brisbane&rsquo;s 2024 flag are both heavy-travel team-seasons, sitting up the top of the chart.
+    </p>
+  </section>
+
+  <!-- ===================================================================
+       SECTION 5 — How the game has changed
+       =================================================================== -->
+  <section id="game" class="section">
+    <p class="section-num">05</p>
+    <h2 class="section-title">How the game has changed</h2>
+    <p class="lede">
+      The AFL of 1990 looked different from the AFL of today: bigger scores, bigger blow-outs, fewer interstate trips. The two charts below track two of those shifts season by season.
+    </p>
+
+    <div class="grid two-col">
+      <div>
+        <h3 class="sub-title">Average winning margin</h3>
+        <figure class="chart" id="chart-11"></figure>
+      </div>
+      <div>
+        <h3 class="sub-title">Home win rate</h3>
+        <figure class="chart" id="chart-12"></figure>
+      </div>
+    </div>
+    <p class="caption">
+      Margins have trended down, especially since 2017 as the AFL has equalised the talent pool through the draft and salary cap. Home advantage has also softened, though it still sits comfortably above 50%.
+    </p>
+
+    <h3 class="sub-title space-top">Every margin, every season</h3>
+    <p class="lede">
+      A strip plot of all 6,872 matches: each dot is a single game, vertical position is the winning margin. Reading the chart left to right, you can see the cloud of dots compress towards the bottom in recent seasons &mdash; fewer huge wins, more tight finishes.
+    </p>
+    <figure class="chart big-chart" id="chart-13"></figure>
+    <p class="caption">
+      Navy is a home-team win, red is an away-team win, gold is a draw. Hover for the matchup.
+    </p>
+  </section>
+
+  <!-- ===================================================================
+       Footer / sources / acknowledgement
+       =================================================================== -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <h3 class="footer-h">Data sources</h3>
+        <ul>
+          <li><a href="https://api.squiggle.com.au/">Squiggle API</a> &mdash; match results and standings, every season since 1897. Used for all 6,872 matches and 36 ladders.</li>
+          <li><a href="https://en.wikipedia.org/wiki/Brownlow_Medal">Wikipedia: Brownlow Medal</a> &mdash; cross-referenced for the per-season list of medallists 1990 to 2025.</li>
+          <li><a href="https://github.com/rowanhogan/australian-states">rowanhogan/australian-states</a> &mdash; GeoJSON of Australian state outlines (public domain).</li>
+          <li>Team and venue coordinates compiled from publicly available Wikipedia geocoordinates.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-h">About this page</h3>
+        <p>Author: <strong>Muaaz Khan</strong> &middot; Student ID <strong>34445811</strong> &middot; Monash University, Faculty of Information Technology.</p>
+        <p>Built for FIT2179 Data Visualisation 2. All charts authored in Vega-Lite v5; layout via Pure.css; type set in Bitter and Inter from Google Fonts.</p>
+        <p>Source on GitHub: <a href="https://github.com/mkha0175/afl-dv2">github.com/mkha0175/afl-dv2</a></p>
+      </div>
+    </div>
+    <p class="footer-foot">Released for educational use. Last updated 20 May 2026.</p>
+  </footer>
+
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
