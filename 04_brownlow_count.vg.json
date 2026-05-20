@@ -1,0 +1,51 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Brownlow Medal leaderboard 1990-2025. All 40 medallists (including ties) ranked by votes received, in a horizontal bar chart. Combined idiom: bar (length = votes) + text label (player + year + club) + colour (club). Cripps' 45 votes in 2024 is the highest tally in the medal's history.",
+  "width": "container",
+  "height": 760,
+  "background": "white",
+  "config": {
+    "view": {"stroke": null},
+    "font": "Inter, system-ui, sans-serif"
+  },
+  "data": {"url": "data/brownlow.csv"},
+  "transform": [
+    {"calculate": "datum.team == 'Footscray' ? 'Western Bulldogs' : (datum.team == 'Brisbane Bears' ? 'Brisbane Lions' : datum.team)", "as": "club"},
+    {"calculate": "datum.player + '  (' + datum.year + ')'", "as": "label"}
+  ],
+  "layer": [
+    {
+      "mark": {"type": "bar", "height": {"band": 0.78}, "cornerRadiusEnd": 3},
+      "encoding": {
+        "x": {"field": "votes", "type": "quantitative", "title": "Brownlow votes received",
+              "axis": {"grid": true, "gridColor": "#EAEAEA", "tickMinStep": 5}},
+        "y": {"field": "label", "type": "nominal", "sort": "-x", "title": null,
+              "axis": {"labelFontSize": 10, "labelFontWeight": 500, "ticks": false, "domain": false,
+                       "labelPadding": 6, "labelLimit": 230}},
+        "color": {
+          "field": "club", "type": "nominal",
+          "scale": {
+            "domain": ["Adelaide","Brisbane Lions","Carlton","Collingwood","Essendon","Fremantle","Geelong","Gold Coast","Greater Western Sydney","Hawthorn","Melbourne","North Melbourne","Port Adelaide","Richmond","St Kilda","Sydney","West Coast","Western Bulldogs"],
+            "range":  ["#002B5C","#A30046","#031A29","#000000","#CC2031","#2A0D54","#1C3C63","#D71920","#F47920","#4D2004","#0F1131","#013A81","#008AAB","#FFD200","#ED1B2F","#ED1B2F","#003087","#014A99"]
+          },
+          "title": "Club",
+          "legend": {"orient": "bottom", "columns": 6, "labelFontSize": 9}
+        },
+        "tooltip": [
+          {"field": "year", "title": "Year"},
+          {"field": "player", "title": "Medallist"},
+          {"field": "club", "title": "Club"},
+          {"field": "votes", "title": "Votes"}
+        ]
+      }
+    },
+    {
+      "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 6, "fontSize": 10, "fontWeight": 700, "color": "#1B1B1E"},
+      "encoding": {
+        "x": {"field": "votes", "type": "quantitative"},
+        "y": {"field": "label", "type": "nominal", "sort": "-x"},
+        "text": {"field": "votes"}
+      }
+    }
+  ]
+}

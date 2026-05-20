@@ -1,0 +1,593 @@
+team,year,km
+Brisbane Lions,1990,17531
+Carlton,1990,3564
+Collingwood,1990,5021
+Essendon,1990,2349
+Geelong,1990,5589
+Hawthorn,1990,4300
+Melbourne,1990,5026
+North Melbourne,1990,1522
+Richmond,1990,4930
+St Kilda,1990,3645
+Sydney,1990,10462
+West Coast,1990,42363
+Western Bulldogs,1990,4965
+Adelaide,1991,9272
+Brisbane Lions,1991,15254
+Carlton,1991,2947
+Collingwood,1991,4317
+Essendon,1991,5732
+Geelong,1991,5807
+Hawthorn,1991,7707
+Melbourne,1991,5647
+North Melbourne,1991,5622
+Richmond,1991,2203
+St Kilda,1991,6333
+Sydney,1991,10943
+West Coast,1991,38564
+Western Bulldogs,1991,4929
+Adelaide,1992,9731
+Brisbane Lions,1992,17753
+Carlton,1992,4924
+Collingwood,1992,5594
+Essendon,1992,2853
+Geelong,1992,6389
+Hawthorn,1992,5119
+Melbourne,1992,5606
+North Melbourne,1992,1525
+Richmond,1992,4272
+St Kilda,1992,3711
+Sydney,1992,10851
+West Coast,1992,37166
+Western Bulldogs,1992,5673
+Adelaide,1993,11573
+Brisbane Lions,1993,15996
+Carlton,1993,3555
+Collingwood,1993,2101
+Essendon,1993,3735
+Geelong,1993,6085
+Hawthorn,1993,5768
+Melbourne,1993,2832
+North Melbourne,1993,5634
+Richmond,1993,4907
+St Kilda,1993,1717
+Sydney,1993,7129
+West Coast,1993,33542
+Western Bulldogs,1993,3501
+Adelaide,1994,10230
+Brisbane Lions,1994,17027
+Carlton,1994,4257
+Collingwood,1994,4895
+Essendon,1994,4999
+Geelong,1994,2437
+Hawthorn,1994,5746
+Melbourne,1994,5648
+North Melbourne,1994,5015
+Richmond,1994,5621
+St Kilda,1994,5155
+Sydney,1994,10956
+West Coast,1994,32068
+Western Bulldogs,1994,4962
+Adelaide,1995,10224
+Brisbane Lions,1995,20631
+Carlton,1995,7634
+Collingwood,1995,4951
+Essendon,1995,7739
+Fremantle,1995,27415
+Geelong,1995,4325
+Hawthorn,1995,2373
+Melbourne,1995,7633
+North Melbourne,1995,7598
+Richmond,1995,5572
+St Kilda,1995,5764
+Sydney,1995,13538
+West Coast,1995,32482
+Western Bulldogs,1995,7011
+Adelaide,1996,7801
+Brisbane Lions,1996,20627
+Carlton,1996,11077
+Collingwood,1996,8263
+Essendon,1996,7755
+Fremantle,1996,28263
+Geelong,1996,4761
+Hawthorn,1996,5854
+Melbourne,1996,8319
+North Melbourne,1996,7598
+Richmond,1996,4961
+St Kilda,1996,6463
+Sydney,1996,14143
+West Coast,1996,30825
+Western Bulldogs,1996,2297
+Adelaide,1997,10390
+Brisbane Lions,1997,21426
+Carlton,1997,4883
+Collingwood,1997,3480
+Essendon,1997,8980
+Fremantle,1997,26856
+Geelong,1997,9436
+Hawthorn,1997,7858
+Melbourne,1997,6892
+North Melbourne,1997,2873
+Port Adelaide,1997,9132
+Richmond,1997,6257
+St Kilda,1997,9221
+Sydney,1997,14687
+West Coast,1997,32933
+Western Bulldogs,1997,6983
+Adelaide,1998,14182
+Brisbane Lions,1998,16792
+Carlton,1998,6833
+Collingwood,1998,5547
+Essendon,1998,3635
+Fremantle,1998,26265
+Geelong,1998,2735
+Hawthorn,1998,9169
+Melbourne,1998,8919
+North Melbourne,1998,8713
+Port Adelaide,1998,9969
+Richmond,1998,5627
+St Kilda,1998,9261
+Sydney,1998,13528
+West Coast,1998,30220
+Western Bulldogs,1998,5745
+Adelaide,1999,11106
+Brisbane Lions,1999,20797
+Carlton,1999,7556
+Collingwood,1999,5607
+Essendon,1999,6314
+Fremantle,1999,28297
+Geelong,1999,6705
+Hawthorn,1999,9161
+Melbourne,1999,4906
+North Melbourne,1999,7065
+Port Adelaide,1999,11738
+Richmond,1999,4814
+St Kilda,1999,8520
+Sydney,1999,11371
+West Coast,1999,34722
+Western Bulldogs,1999,7702
+Adelaide,2000,9031
+Brisbane Lions,2000,18630
+Carlton,2000,7536
+Collingwood,2000,3456
+Essendon,2000,5640
+Fremantle,2000,27101
+Geelong,2000,8113
+Hawthorn,2000,6250
+Melbourne,2000,7578
+North Melbourne,2000,6293
+Port Adelaide,2000,11572
+Richmond,2000,6226
+St Kilda,2000,7708
+Sydney,2000,12100
+West Coast,2000,28058
+Western Bulldogs,2000,10299
+Adelaide,2001,10613
+Brisbane Lions,2001,19266
+Carlton,2001,4806
+Collingwood,2001,4563
+Essendon,2001,5640
+Fremantle,2001,28307
+Geelong,2001,9421
+Hawthorn,2001,5989
+Melbourne,2001,8888
+North Melbourne,2001,7680
+Port Adelaide,2001,12959
+Richmond,2001,8978
+St Kilda,2001,8838
+Sydney,2001,10191
+West Coast,2001,26582
+Western Bulldogs,2001,6279
+Adelaide,2002,13292
+Brisbane Lions,2002,17263
+Carlton,2002,5518
+Collingwood,2002,7493
+Essendon,2002,8978
+Fremantle,2002,28872
+Geelong,2002,6746
+Hawthorn,2002,8461
+Melbourne,2002,8298
+North Melbourne,2002,7680
+Port Adelaide,2002,13070
+Richmond,2002,4803
+St Kilda,2002,6316
+Sydney,2002,9520
+West Coast,2002,30585
+Western Bulldogs,2002,6276
+Adelaide,2003,12635
+Brisbane Lions,2003,19139
+Carlton,2003,6858
+Collingwood,2003,3455
+Essendon,2003,8978
+Fremantle,2003,27089
+Geelong,2003,8677
+Hawthorn,2003,6441
+Melbourne,2003,6230
+North Melbourne,2003,9166
+Port Adelaide,2003,10143
+Richmond,2003,8205
+St Kilda,2003,7866
+Sydney,2003,11401
+West Coast,2003,29836
+Western Bulldogs,2003,8775
+Adelaide,2004,11414
+Brisbane Lions,2004,20642
+Carlton,2004,8185
+Collingwood,2004,5514
+Essendon,2004,4905
+Fremantle,2004,27609
+Geelong,2004,8749
+Hawthorn,2004,3784
+Melbourne,2004,8946
+North Melbourne,2004,6966
+Port Adelaide,2004,13580
+Richmond,2004,6188
+St Kilda,2004,8562
+Sydney,2004,13141
+West Coast,2004,31426
+Western Bulldogs,2004,9831
+Adelaide,2005,11133
+Brisbane Lions,2005,18056
+Carlton,2005,9986
+Collingwood,2005,5512
+Essendon,2005,6250
+Fremantle,2005,27026
+Geelong,2005,7013
+Hawthorn,2005,9171
+Melbourne,2005,6693
+North Melbourne,2005,7619
+Port Adelaide,2005,12404
+Richmond,2005,4889
+St Kilda,2005,8477
+Sydney,2005,14490
+West Coast,2005,31042
+Western Bulldogs,2005,12134
+Adelaide,2006,12012
+Brisbane Lions,2006,14351
+Carlton,2006,8262
+Collingwood,2006,4805
+Essendon,2006,5610
+Fremantle,2006,33633
+Geelong,2006,6627
+Hawthorn,2006,8244
+Melbourne,2006,12358
+North Melbourne,2006,8705
+Port Adelaide,2006,10978
+Richmond,2006,8754
+St Kilda,2006,9181
+Sydney,2006,13859
+West Coast,2006,32125
+Western Bulldogs,2006,12094
+Adelaide,2007,10632
+Brisbane Lions,2007,14351
+Carlton,2007,9597
+Collingwood,2007,8237
+Essendon,2007,7606
+Fremantle,2007,27624
+Geelong,2007,6595
+Hawthorn,2007,7989
+Melbourne,2007,8690
+North Melbourne,2007,12712
+Port Adelaide,2007,10653
+Richmond,2007,7601
+St Kilda,2007,8307
+Sydney,2007,10794
+West Coast,2007,28939
+Western Bulldogs,2007,8469
+Adelaide,2008,9969
+Brisbane Lions,2008,15990
+Carlton,2008,5490
+Collingwood,2008,6172
+Essendon,2008,6950
+Fremantle,2008,27675
+Geelong,2008,8176
+Hawthorn,2008,9347
+Melbourne,2008,5979
+North Melbourne,2008,10249
+Port Adelaide,2008,12440
+Richmond,2008,7538
+St Kilda,2008,9673
+Sydney,2008,10830
+West Coast,2008,28955
+Western Bulldogs,2008,9694
+Adelaide,2009,10647
+Brisbane Lions,2009,18672
+Carlton,2009,8902
+Collingwood,2009,5514
+Essendon,2009,8977
+Fremantle,2009,27113
+Geelong,2009,8978
+Hawthorn,2009,9322
+Melbourne,2009,6661
+North Melbourne,2009,6676
+Port Adelaide,2009,13000
+Richmond,2009,8280
+St Kilda,2009,6671
+Sydney,2009,10098
+West Coast,2009,27743
+Western Bulldogs,2009,11201
+Adelaide,2010,10932
+Brisbane Lions,2010,17524
+Carlton,2010,8913
+Collingwood,2010,5516
+Essendon,2010,4249
+Fremantle,2010,31288
+Geelong,2010,9045
+Hawthorn,2010,8673
+Melbourne,2010,8668
+North Melbourne,2010,7367
+Port Adelaide,2010,13495
+Richmond,2010,6245
+St Kilda,2010,8989
+Sydney,2010,11728
+West Coast,2010,28065
+Western Bulldogs,2010,9199
+Adelaide,2011,9977
+Brisbane Lions,2011,15861
+Carlton,2011,8271
+Collingwood,2011,5483
+Essendon,2011,8324
+Fremantle,2011,27724
+Geelong,2011,10392
+Gold Coast,2011,19248
+Hawthorn,2011,7949
+Melbourne,2011,8002
+North Melbourne,2011,9362
+Port Adelaide,2011,13486
+Richmond,2011,10992
+St Kilda,2011,7589
+Sydney,2011,11944
+West Coast,2011,32636
+Western Bulldogs,2011,8771
+Adelaide,2012,11660
+Brisbane Lions,2012,17896
+Carlton,2012,8890
+Collingwood,2012,6913
+Essendon,2012,6216
+Fremantle,2012,32837
+Geelong,2012,10256
+Gold Coast,2012,17322
+Greater Western Sydney,2012,11233
+Hawthorn,2012,5952
+Melbourne,2012,11250
+North Melbourne,2012,10542
+Port Adelaide,2012,11900
+Richmond,2012,8554
+St Kilda,2012,7593
+Sydney,2012,12348
+West Coast,2012,30508
+Western Bulldogs,2012,9232
+Adelaide,2013,11987
+Brisbane Lions,2013,17465
+Carlton,2013,7583
+Collingwood,2013,6845
+Essendon,2013,7655
+Fremantle,2013,33938
+Geelong,2013,7647
+Gold Coast,2013,15160
+Greater Western Sydney,2013,11019
+Hawthorn,2013,6616
+Melbourne,2013,10052
+North Melbourne,2013,10056
+Port Adelaide,2013,13361
+Richmond,2013,9894
+St Kilda,2013,10020
+Sydney,2013,16605
+West Coast,2013,27505
+Western Bulldogs,2013,10241
+Adelaide,2014,9961
+Brisbane Lions,2014,17762
+Carlton,2014,6234
+Collingwood,2014,6169
+Essendon,2014,6308
+Fremantle,2014,31519
+Geelong,2014,8411
+Gold Coast,2014,18734
+Greater Western Sydney,2014,13383
+Hawthorn,2014,7928
+Melbourne,2014,9810
+North Melbourne,2014,10664
+Port Adelaide,2014,14906
+Richmond,2014,8200
+St Kilda,2014,9418
+Sydney,2014,11410
+West Coast,2014,28639
+Western Bulldogs,2014,8095
+Adelaide,2015,12210
+Brisbane Lions,2015,15990
+Carlton,2015,10875
+Collingwood,2015,6845
+Essendon,2015,8333
+Fremantle,2015,27389
+Geelong,2015,5197
+Gold Coast,2015,15411
+Greater Western Sydney,2015,13360
+Hawthorn,2015,12754
+Melbourne,2015,8984
+North Melbourne,2015,12127
+Port Adelaide,2015,11274
+Richmond,2015,6757
+St Kilda,2015,10725
+Sydney,2015,16176
+West Coast,2015,30818
+Western Bulldogs,2015,8383
+Adelaide,2016,11597
+Brisbane Lions,2016,16589
+Carlton,2016,7361
+Collingwood,2016,6209
+Essendon,2016,8923
+Fremantle,2016,29395
+Geelong,2016,6616
+Gold Coast,2016,17882
+Greater Western Sydney,2016,11333
+Hawthorn,2016,8007
+Melbourne,2016,11166
+North Melbourne,2016,9289
+Port Adelaide,2016,11581
+Richmond,2016,7915
+St Kilda,2016,5932
+Sydney,2016,12017
+West Coast,2016,28043
+Western Bulldogs,2016,10710
+Adelaide,2017,13039
+Brisbane Lions,2017,15929
+Carlton,2017,9591
+Collingwood,2017,6177
+Essendon,2017,8342
+Fremantle,2017,28240
+Geelong,2017,10938
+Gold Coast,2017,22952
+Greater Western Sydney,2017,13305
+Hawthorn,2017,7923
+Melbourne,2017,9517
+North Melbourne,2017,8368
+Port Adelaide,2017,16783
+Richmond,2017,7568
+St Kilda,2017,8022
+Sydney,2017,10955
+West Coast,2017,33526
+Western Bulldogs,2017,11206
+Adelaide,2018,10468
+Brisbane Lions,2018,15984
+Carlton,2018,7526
+Collingwood,2018,9567
+Essendon,2018,9628
+Fremantle,2018,25032
+Geelong,2018,6707
+Gold Coast,2018,27662
+Greater Western Sydney,2018,12401
+Hawthorn,2018,7351
+Melbourne,2018,14631
+North Melbourne,2018,9677
+Port Adelaide,2018,17387
+Richmond,2018,6121
+St Kilda,2018,8748
+Sydney,2018,9812
+West Coast,2018,31100
+Western Bulldogs,2018,7474
+Adelaide,2019,12268
+Brisbane Lions,2019,15963
+Carlton,2019,6702
+Collingwood,2019,6207
+Essendon,2019,11685
+Fremantle,2019,27817
+Geelong,2019,8205
+Gold Coast,2019,16190
+Greater Western Sydney,2019,13785
+Hawthorn,2019,7754
+Melbourne,2019,11880
+North Melbourne,2019,11297
+Port Adelaide,2019,17920
+Richmond,2019,7496
+St Kilda,2019,15441
+Sydney,2019,10600
+West Coast,2019,30062
+Western Bulldogs,2019,9204
+Adelaide,2020,11194
+Brisbane Lions,2020,4530
+Carlton,2020,22231
+Collingwood,2020,23926
+Essendon,2020,17972
+Fremantle,2020,35160
+Geelong,2020,25109
+Gold Coast,2020,7523
+Greater Western Sydney,2020,15885
+Hawthorn,2020,15717
+Melbourne,2020,20127
+North Melbourne,2020,16218
+Port Adelaide,2020,16113
+Richmond,2020,20714
+St Kilda,2020,18269
+Sydney,2020,17802
+West Coast,2020,36176
+Western Bulldogs,2020,17864
+Adelaide,2021,11436
+Brisbane Lions,2021,16797
+Carlton,2021,4188
+Collingwood,2021,6212
+Essendon,2021,12671
+Fremantle,2021,31337
+Geelong,2021,13159
+Gold Coast,2021,23617
+Greater Western Sydney,2021,18749
+Hawthorn,2021,6850
+Melbourne,2021,12694
+North Melbourne,2021,12308
+Port Adelaide,2021,10787
+Richmond,2021,12277
+St Kilda,2021,10561
+Sydney,2021,13925
+West Coast,2021,28571
+Western Bulldogs,2021,13852
+Adelaide,2022,9860
+Brisbane Lions,2022,18306
+Carlton,2022,9572
+Collingwood,2022,7554
+Essendon,2022,6295
+Fremantle,2022,30861
+Geelong,2022,7255
+Gold Coast,2022,20868
+Greater Western Sydney,2022,11521
+Hawthorn,2022,9669
+Melbourne,2022,11447
+North Melbourne,2022,11104
+Port Adelaide,2022,11773
+Richmond,2022,7497
+St Kilda,2022,11140
+Sydney,2022,14374
+West Coast,2022,28359
+Western Bulldogs,2022,9654
+Adelaide,2023,11701
+Brisbane Lions,2023,19059
+Carlton,2023,10295
+Collingwood,2023,7448
+Essendon,2023,9004
+Fremantle,2023,31011
+Geelong,2023,8074
+Gold Coast,2023,23038
+Greater Western Sydney,2023,16750
+Hawthorn,2023,8621
+Melbourne,2023,10041
+North Melbourne,2023,10995
+Port Adelaide,2023,10859
+Richmond,2023,9528
+St Kilda,2023,8290
+Sydney,2023,12105
+West Coast,2023,29888
+Western Bulldogs,2023,8478
+Adelaide,2024,10913
+Brisbane Lions,2024,23402
+Carlton,2024,8252
+Collingwood,2024,7542
+Essendon,2024,7577
+Fremantle,2024,29681
+Geelong,2024,11043
+Gold Coast,2024,24223
+Greater Western Sydney,2024,12315
+Hawthorn,2024,9063
+Melbourne,2024,12093
+North Melbourne,2024,10876
+Port Adelaide,2024,11359
+Richmond,2024,10226
+St Kilda,2024,7132
+Sydney,2024,12496
+West Coast,2024,29360
+Western Bulldogs,2024,6429
+Adelaide,2025,11347
+Brisbane Lions,2025,21849
+Carlton,2025,8181
+Collingwood,2025,8146
+Essendon,2025,9703
+Fremantle,2025,28355
+Geelong,2025,7572
+Gold Coast,2025,26797
+Greater Western Sydney,2025,12234
+Hawthorn,2025,12474
+Melbourne,2025,9381
+North Melbourne,2025,10215
+Port Adelaide,2025,10254
+Richmond,2025,6778
+St Kilda,2025,10175
+Sydney,2025,13906
+West Coast,2025,27068
+Western Bulldogs,2025,9311

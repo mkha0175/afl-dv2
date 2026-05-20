@@ -1,0 +1,129 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Grand Final scoreboard 1990-2025. Two lines per year (winner and runner-up) with the vertical band between them shaded to show the margin.",
+  "width": "container",
+  "height": 320,
+  "background": "white",
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Inter, system-ui, sans-serif"
+  },
+  "data": {
+    "url": "data/gf_scores.csv"
+  },
+  "transform": [
+    {
+      "calculate": "toNumber(datum.year)",
+      "as": "year_num"
+    },
+    {
+      "calculate": "toNumber(datum.score)",
+      "as": "score_num"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "area",
+        "opacity": 0.18,
+        "color": "#A30046"
+      },
+      "transform": [
+        {
+          "pivot": "side",
+          "value": "score_num",
+          "groupby": [
+            "year_num"
+          ]
+        }
+      ],
+      "encoding": {
+        "x": {
+          "field": "year_num",
+          "type": "quantitative",
+          "title": null,
+          "axis": {
+            "format": "d"
+          }
+        },
+        "y": {
+          "field": "Winner",
+          "type": "quantitative",
+          "title": "Points scored"
+        },
+        "y2": {
+          "field": "Runner-up"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2.2,
+        "interpolate": "monotone",
+        "point": {
+          "size": 40,
+          "filled": true
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "year_num",
+          "type": "quantitative",
+          "title": null,
+          "axis": {
+            "format": "d",
+            "grid": false
+          }
+        },
+        "y": {
+          "field": "score_num",
+          "type": "quantitative",
+          "title": "Points scored",
+          "axis": {
+            "grid": true,
+            "gridColor": "#EAEAEA"
+          }
+        },
+        "color": {
+          "field": "side",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Winner",
+              "Runner-up"
+            ],
+            "range": [
+              "#0B2545",
+              "#A30046"
+            ]
+          },
+          "legend": {
+            "orient": "top-right",
+            "title": null
+          }
+        },
+        "tooltip": [
+          {
+            "field": "year",
+            "title": "Year"
+          },
+          {
+            "field": "side",
+            "title": "Side"
+          },
+          {
+            "field": "team",
+            "title": "Team"
+          },
+          {
+            "field": "score",
+            "title": "Score"
+          }
+        ]
+      }
+    }
+  ]
+}

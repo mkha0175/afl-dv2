@@ -1,0 +1,183 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Scatter plot: total km travelled in a season versus the team's final ladder position. Each dot is one team-season. Years played in COVID-shortened 2020 are highlighted because every team's travel was unusual.",
+  "width": "container",
+  "height": 380,
+  "background": "white",
+  "config": {
+    "view": {
+      "stroke": "#E0DACB"
+    },
+    "font": "Inter, system-ui, sans-serif"
+  },
+  "data": {
+    "url": "data/travel_ladder.csv"
+  },
+  "transform": [
+    {
+      "calculate": "datum.year == 2020 ? 'COVID 2020' : 'Normal season'",
+      "as": "season_type"
+    },
+    {
+      "calculate": "datum.km / 1000",
+      "as": "km_k"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "circle",
+        "opacity": 0.55,
+        "size": 60,
+        "stroke": "white",
+        "strokeWidth": 0.5
+      },
+      "encoding": {
+        "x": {
+          "field": "km_k",
+          "type": "quantitative",
+          "title": "Total distance travelled in the season (thousands of km)",
+          "axis": {
+            "grid": true,
+            "gridColor": "#EAEAEA",
+            "format": ".0f"
+          }
+        },
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+          "title": "Final ladder position (1 = top)",
+          "scale": {
+            "reverse": true,
+            "domain": [
+              1,
+              18
+            ]
+          },
+          "axis": {
+            "grid": true,
+            "gridColor": "#EAEAEA",
+            "values": [
+              1,
+              4,
+              8,
+              12,
+              16,
+              18
+            ]
+          }
+        },
+        "color": {
+          "field": "season_type",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Normal season",
+              "COVID 2020"
+            ],
+            "range": [
+              "#0B2545",
+              "#D62828"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "orient": "top-right"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "team",
+            "title": "Club"
+          },
+          {
+            "field": "year",
+            "title": "Season"
+          },
+          {
+            "field": "km",
+            "title": "Distance (km)",
+            "format": ","
+          },
+          {
+            "field": "rank",
+            "title": "Final ladder"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "regression": "rank",
+          "on": "km_k",
+          "method": "linear"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "stroke": "#7A1F1F",
+        "strokeWidth": 1.6,
+        "strokeDash": [
+          4,
+          3
+        ]
+      },
+      "encoding": {
+        "x": {
+          "field": "km_k",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+          "scale": {
+            "reverse": true,
+            "domain": [
+              1,
+              18
+            ]
+          }
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 5,
+            "y": 16,
+            "lbl": "Trend: more km, slightly worse ladder finish"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "color": "#7A1F1F",
+        "fontStyle": "italic",
+        "fontSize": 11,
+        "align": "left"
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": {
+            "reverse": true,
+            "domain": [
+              1,
+              18
+            ]
+          }
+        },
+        "text": {
+          "field": "lbl"
+        }
+      }
+    }
+  ]
+}

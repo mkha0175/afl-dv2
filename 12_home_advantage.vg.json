@@ -1,0 +1,116 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Home win percentage per season, with a 50% baseline drawn for reference. A drop towards 50 means home advantage is shrinking.",
+  "width": "container",
+  "height": 280,
+  "background": "white",
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Inter, system-ui, sans-serif"
+  },
+  "data": {
+    "url": "data/season_summary.csv"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "stroke": "#7A1F1F",
+        "strokeDash": [
+          4,
+          3
+        ]
+      },
+      "encoding": {
+        "y": {
+          "datum": 50,
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "bar",
+        "color": "#0B2545",
+        "opacity": 0.7,
+        "cornerRadiusEnd": 2
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "axis": {
+            "labelAngle": -45,
+            "labelOverlap": false,
+            "title": null,
+            "labelFontSize": 9
+          }
+        },
+        "y": {
+          "field": "home_win_pct",
+          "type": "quantitative",
+          "title": "Home wins (%)",
+          "axis": {
+            "grid": true,
+            "gridColor": "#EAEAEA"
+          },
+          "scale": {
+            "domain": [
+              30,
+              70
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "year",
+            "title": "Season"
+          },
+          {
+            "field": "home_win_pct",
+            "title": "Home wins (%)"
+          },
+          {
+            "field": "games",
+            "title": "Games"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "y": 50,
+            "lbl": "50% = no home advantage"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "color": "#7A1F1F",
+        "fontSize": 10,
+        "fontStyle": "italic",
+        "dx": -2,
+        "dy": -6,
+        "baseline": "bottom"
+      },
+      "encoding": {
+        "x": {
+          "datum": "2025",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "lbl"
+        }
+      }
+    }
+  ]
+}

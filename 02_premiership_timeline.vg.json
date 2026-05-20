@@ -1,0 +1,153 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Premiership winner each season 1990-2025, plotted as a swimlane: x = year, y = winning club, square coloured by club. Click a club to highlight all its flag years.",
+  "width": "container",
+  "height": 380,
+  "background": "white",
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Inter, system-ui, sans-serif",
+    "axis": {
+      "labelFont": "Inter, sans-serif",
+      "titleFont": "Inter, sans-serif"
+    }
+  },
+  "data": {
+    "url": "data/premierships.csv"
+  },
+  "params": [
+    {
+      "name": "selected_club",
+      "select": {
+        "type": "point",
+        "fields": [
+          "winner"
+        ]
+      },
+      "bind": "legend"
+    }
+  ],
+  "transform": [
+    {
+      "calculate": "datum.winner + ' beat ' + datum.runner_up + ' (' + datum.winner_score + '-' + datum.loser_score + ')'",
+      "as": "result"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": null,
+      "axis": {
+        "labelAngle": -45,
+        "labelOverlap": false,
+        "labelFontSize": 9,
+        "ticks": false,
+        "domain": false
+      }
+    },
+    "y": {
+      "field": "winner",
+      "type": "nominal",
+      "sort": {
+        "op": "count",
+        "order": "descending"
+      },
+      "title": null,
+      "axis": {
+        "labelFontWeight": 600,
+        "ticks": false,
+        "domain": false
+      }
+    },
+    "color": {
+      "field": "winner",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Brisbane Lions",
+          "Hawthorn",
+          "Geelong",
+          "Richmond",
+          "Collingwood",
+          "Sydney",
+          "West Coast",
+          "Essendon",
+          "Adelaide",
+          "North Melbourne",
+          "Port Adelaide",
+          "Carlton",
+          "Melbourne",
+          "Western Bulldogs"
+        ],
+        "range": [
+          "#A30046",
+          "#4D2004",
+          "#1C3C63",
+          "#FFD200",
+          "#000000",
+          "#ED1B2F",
+          "#003087",
+          "#CC2031",
+          "#002B5C",
+          "#013A81",
+          "#008AAB",
+          "#031A29",
+          "#0F1131",
+          "#014A99"
+        ]
+      },
+      "legend": {
+        "orient": "right",
+        "title": "Premier",
+        "labelFontSize": 10,
+        "symbolSize": 100
+      }
+    },
+    "opacity": {
+      "condition": {
+        "param": "selected_club",
+        "value": 1
+      },
+      "value": 0.18
+    },
+    "tooltip": [
+      {
+        "field": "year",
+        "title": "Season"
+      },
+      {
+        "field": "winner",
+        "title": "Premier"
+      },
+      {
+        "field": "runner_up",
+        "title": "Runner-up"
+      },
+      {
+        "field": "winner_score",
+        "title": "Winning score"
+      },
+      {
+        "field": "loser_score",
+        "title": "Losing score"
+      },
+      {
+        "field": "margin",
+        "title": "Margin"
+      },
+      {
+        "field": "venue",
+        "title": "Venue"
+      }
+    ]
+  },
+  "mark": {
+    "type": "rect",
+    "stroke": "white",
+    "strokeWidth": 1.6,
+    "cornerRadius": 2
+  }
+}

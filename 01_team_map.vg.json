@@ -1,0 +1,131 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Two linked views of where the AFL lives. Top: a map of Australia with one labeled bubble per home state, sized by total wins for clubs based there 1990-2025. Bottom: horizontal bar chart of all 18 clubs ranked by wins, coloured to match. Combined idiom: geographic shapes (state outlines) + proportional symbols (bubbles) + bars + text, linked through a shared state colour palette.",
+  "background": "white",
+  "config": {
+    "view": {"stroke": null},
+    "font": "Inter, system-ui, sans-serif"
+  },
+  "vconcat": [
+    {
+      "width": 900,
+      "height": 420,
+      "projection": {"type": "mercator", "center": [134, -26], "scale": 660},
+      "layer": [
+        {
+          "data": {
+            "url": "data/australia_states.geojson",
+            "format": {"type": "json", "property": "features"}
+          },
+          "mark": {"type": "geoshape", "fill": "#F6F6F2", "stroke": "#BFBFBF", "strokeWidth": 0.7}
+        },
+        {
+          "data": {"values": [
+            {"state": "VIC", "lat": -37.10, "lon": 144.50, "wins": 4139, "clubs": 10, "premierships": 22, "label_dx": 0, "label_dy": 64},
+            {"state": "SA",  "lat": -34.93, "lon": 138.60, "wins": 772,  "clubs": 2,  "premierships": 3,  "label_dx": -10, "label_dy": -36},
+            {"state": "WA",  "lat": -31.95, "lon": 115.86, "wins": 763,  "clubs": 2,  "premierships": 4,  "label_dx": 0, "label_dy": -36},
+            {"state": "NSW", "lat": -33.86, "lon": 151.20, "wins": 599,  "clubs": 2,  "premierships": 2,  "label_dx": 12, "label_dy": 38},
+            {"state": "QLD", "lat": -27.47, "lon": 153.02, "wins": 501,  "clubs": 2,  "premierships": 5,  "label_dx": 12, "label_dy": -28}
+          ]},
+          "mark": {"type": "circle", "stroke": "white", "strokeWidth": 2, "opacity": 0.92},
+          "encoding": {
+            "longitude": {"field": "lon", "type": "quantitative"},
+            "latitude":  {"field": "lat", "type": "quantitative"},
+            "size": {
+              "field": "wins", "type": "quantitative",
+              "scale": {"range": [400, 5500]},
+              "legend": null
+            },
+            "color": {
+              "field": "state", "type": "nominal",
+              "scale": {
+                "domain": ["VIC", "SA", "WA", "NSW", "QLD"],
+                "range":  ["#0B2545", "#C0392B", "#2E86AB", "#F39C12", "#117A65"]
+              },
+              "legend": null
+            },
+            "tooltip": [
+              {"field": "state", "title": "State"},
+              {"field": "clubs", "title": "AFL clubs based here"},
+              {"field": "wins", "title": "Total wins 1990 - 2025"},
+              {"field": "premierships", "title": "Premierships"}
+            ]
+          }
+        },
+        {
+          "data": {"values": [
+            {"label": "VIC", "lat": -37.10, "lon": 144.50, "sub": "10 clubs / 22 flags"},
+            {"label": "SA",  "lat": -34.93, "lon": 138.60, "sub": "2 clubs / 3 flags"},
+            {"label": "WA",  "lat": -31.95, "lon": 115.86, "sub": "2 clubs / 4 flags"},
+            {"label": "NSW", "lat": -33.86, "lon": 151.20, "sub": "2 clubs / 2 flags"},
+            {"label": "QLD", "lat": -27.47, "lon": 153.02, "sub": "2 clubs / 5 flags"}
+          ]},
+          "mark": {"type": "text", "fontSize": 13, "fontWeight": 700, "color": "white", "align": "center", "baseline": "middle"},
+          "encoding": {
+            "longitude": {"field": "lon", "type": "quantitative"},
+            "latitude":  {"field": "lat", "type": "quantitative"},
+            "text":      {"field": "label"}
+          }
+        },
+        {
+          "data": {"values": [
+            {"label": "10 clubs · 22 flags", "lat": -42.50, "lon": 144.50},
+            {"label": "2 clubs · 3 flags",   "lat": -34.93, "lon": 132.00},
+            {"label": "2 clubs · 4 flags",   "lat": -32.50, "lon": 110.50},
+            {"label": "2 clubs · 2 flags",   "lat": -36.00, "lon": 155.50},
+            {"label": "2 clubs · 5 flags",   "lat": -27.47, "lon": 158.50}
+          ]},
+          "mark": {"type": "text", "fontSize": 10, "fontWeight": 500, "fontStyle": "italic", "color": "#4A4A52", "align": "center", "baseline": "middle"},
+          "encoding": {
+            "longitude": {"field": "lon", "type": "quantitative"},
+            "latitude":  {"field": "lat", "type": "quantitative"},
+            "text":      {"field": "label"}
+          }
+        }
+      ]
+    },
+    {
+      "width": 900,
+      "height": 380,
+      "data": {"url": "data/team_totals.csv"},
+      "layer": [
+        {
+          "mark": {"type": "bar", "height": {"band": 0.7}, "cornerRadiusEnd": 3},
+          "encoding": {
+            "x": {"field": "wins_1990_2025", "type": "quantitative",
+                  "title": "Wins 1990 - 2025",
+                  "axis": {"grid": true, "gridColor": "#EAEAEA", "format": "d"}},
+            "y": {"field": "team", "type": "nominal", "sort": "-x", "title": null,
+                  "axis": {"labelFontWeight": 600, "ticks": false, "domain": false, "labelFontSize": 10}},
+            "color": {
+              "field": "state", "type": "nominal",
+              "scale": {
+                "domain": ["VIC", "SA", "WA", "NSW", "QLD"],
+                "range":  ["#0B2545", "#C0392B", "#2E86AB", "#F39C12", "#117A65"]
+              },
+              "title": "Home state",
+              "legend": {"orient": "top", "direction": "horizontal"}
+            },
+            "tooltip": [
+              {"field": "team", "title": "Club"},
+              {"field": "state", "title": "State"},
+              {"field": "games_1990_2025", "title": "Games"},
+              {"field": "wins_1990_2025", "title": "Wins"},
+              {"field": "win_pct", "title": "Win %", "format": ".1f"},
+              {"field": "premierships", "title": "Premierships"}
+            ]
+          }
+        },
+        {
+          "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 6, "fontSize": 11, "fontWeight": 700, "color": "#1B1B1E"},
+          "encoding": {
+            "x": {"field": "wins_1990_2025", "type": "quantitative"},
+            "y": {"field": "team", "type": "nominal", "sort": "-x"},
+            "text": {"field": "wins_1990_2025"}
+          }
+        }
+      ]
+    }
+  ],
+  "resolve": {"scale": {"color": "independent", "size": "independent"}}
+}

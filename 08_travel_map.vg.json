@@ -1,0 +1,54 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Geographic map of kilometres travelled by each club in the 2025 season. Derived data: sum of haversine distances from each club's home city to every venue it played.",
+  "width": "container",
+  "height": 480,
+  "background": "white",
+  "config": {
+    "view": {"stroke": null},
+    "font": "Inter, system-ui, sans-serif"
+  },
+  "projection": {"type": "mercator", "center": [136, -28], "scale": 780},
+  "layer": [
+    {
+      "data": {
+        "url": "data/australia_states.geojson",
+        "format": {"type": "json", "property": "features"}
+      },
+      "mark": {"type": "geoshape", "fill": "white", "stroke": "#BFBFBF", "strokeWidth": 0.6}
+    },
+    {
+      "data": {"url": "data/travel.csv"},
+      "transform": [
+        {"filter": "datum.year == 2025"},
+        {"lookup": "team",
+         "from": {
+           "data": {"url": "data/teams.csv"},
+           "key": "name",
+           "fields": ["lat", "lon", "state", "primary_color"]
+         }}
+      ],
+      "mark": {"type": "circle", "stroke": "white", "strokeWidth": 1.5, "opacity": 0.9},
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude":  {"field": "lat", "type": "quantitative"},
+        "size": {
+          "field": "km", "type": "quantitative",
+          "scale": {"range": [80, 1400]},
+          "title": "Distance flown in 2025 (km)",
+          "legend": {"orient": "bottom-right", "format": ","}
+        },
+        "color": {
+          "field": "km", "type": "quantitative",
+          "scale": {"scheme": "reds"},
+          "legend": null
+        },
+        "tooltip": [
+          {"field": "team", "title": "Club"},
+          {"field": "km", "title": "Distance flown (km)", "format": ","},
+          {"field": "state", "title": "Home state"}
+        ]
+      }
+    }
+  ]
+}

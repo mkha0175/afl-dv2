@@ -1,0 +1,138 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Head-to-head wins, 1990-2025. Cell (row=A, col=B) is the count of times A beat B. Diagonal is blank. Sequential blues; deeper = more dominant in the matchup.",
+  "width": "container",
+  "height": 460,
+  "background": "white",
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Inter, system-ui, sans-serif",
+    "axis": {
+      "labelFont": "Inter, sans-serif",
+      "titleFont": "Inter, sans-serif"
+    }
+  },
+  "data": {
+    "url": "data/head_to_head.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.winner != datum.loser"
+    },
+    {
+      "lookup": "winner",
+      "from": {
+        "data": {
+          "url": "data/teams.csv"
+        },
+        "key": "name",
+        "fields": [
+          "state"
+        ]
+      },
+      "as": "winner_state"
+    },
+    {
+      "lookup": "loser",
+      "from": {
+        "data": {
+          "url": "data/teams.csv"
+        },
+        "key": "name",
+        "fields": [
+          "state"
+        ]
+      },
+      "as": "loser_state"
+    },
+    {
+      "filter": "datum.winner_state != null && datum.loser_state != null"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "white",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "x": {
+          "field": "loser",
+          "type": "nominal",
+          "title": "Losing club",
+          "sort": "ascending",
+          "axis": {
+            "labelAngle": -40,
+            "labelFontSize": 9
+          }
+        },
+        "y": {
+          "field": "winner",
+          "type": "nominal",
+          "title": "Winning club",
+          "sort": "ascending",
+          "axis": {
+            "labelFontSize": 9
+          }
+        },
+        "color": {
+          "field": "wins",
+          "type": "quantitative",
+          "scale": {
+            "scheme": "blues",
+            "type": "linear"
+          },
+          "legend": {
+            "title": "Wins",
+            "orient": "right"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "winner",
+            "title": "Won"
+          },
+          {
+            "field": "loser",
+            "title": "Beat"
+          },
+          {
+            "field": "wins",
+            "title": "Wins"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.wins >= 30"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 8,
+        "color": "white",
+        "fontWeight": 600
+      },
+      "encoding": {
+        "x": {
+          "field": "loser",
+          "type": "nominal",
+          "sort": "ascending"
+        },
+        "y": {
+          "field": "winner",
+          "type": "nominal",
+          "sort": "ascending"
+        },
+        "text": {
+          "field": "wins"
+        }
+      }
+    }
+  ]
+}

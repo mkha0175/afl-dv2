@@ -1,0 +1,336 @@
+winner,loser,wins
+Sydney,Carlton,36
+Essendon,Fitzroy,9
+Hawthorn,Geelong,29
+Melbourne,North Melbourne,24
+Brisbane Lions,Richmond,18
+West Coast,Collingwood,29
+St Kilda,Western Bulldogs,28
+North Melbourne,Richmond,35
+Collingwood,Carlton,40
+Melbourne,Geelong,16
+St Kilda,West Coast,21
+Fitzroy,Brisbane Lions,3
+Essendon,Hawthorn,28
+Western Bulldogs,Sydney,30
+Hawthorn,Richmond,27
+Carlton,St Kilda,23
+West Coast,Western Bulldogs,33
+North Melbourne,Brisbane Lions,29
+Collingwood,Sydney,29
+Geelong,Fitzroy,8
+Melbourne,Essendon,21
+West Coast,Carlton,24
+Collingwood,Western Bulldogs,30
+Hawthorn,Brisbane Lions,31
+Essendon,Richmond,30
+Melbourne,Fitzroy,8
+Geelong,North Melbourne,40
+St Kilda,Sydney,26
+Western Bulldogs,Carlton,25
+Richmond,Fitzroy,8
+Geelong,Essendon,34
+Hawthorn,North Melbourne,33
+Collingwood,St Kilda,29
+Melbourne,Brisbane Lions,27
+West Coast,Sydney,21
+West Coast,Richmond,26
+Carlton,North Melbourne,21
+Essendon,Collingwood,31
+Geelong,Brisbane Lions,33
+St Kilda,Hawthorn,23
+Western Bulldogs,Fitzroy,11
+Sydney,Melbourne,32
+Melbourne,West Coast,19
+Hawthorn,Collingwood,35
+Carlton,Essendon,30
+Western Bulldogs,North Melbourne,31
+Fitzroy,St Kilda,2
+Brisbane Lions,Sydney,26
+Richmond,Geelong,14
+Sydney,Geelong,23
+Carlton,Hawthorn,19
+Melbourne,Richmond,27
+St Kilda,North Melbourne,26
+Collingwood,Fitzroy,8
+West Coast,Brisbane Lions,30
+Essendon,Western Bulldogs,25
+Carlton,Fitzroy,7
+Collingwood,North Melbourne,30
+Essendon,St Kilda,27
+Hawthorn,Melbourne,33
+Western Bulldogs,Brisbane Lions,33
+Richmond,Sydney,24
+West Coast,Geelong,24
+North Melbourne,West Coast,24
+Collingwood,Melbourne,32
+Richmond,Carlton,26
+St Kilda,Brisbane Lions,22
+Fitzroy,Hawthorn,2
+Geelong,Western Bulldogs,41
+Essendon,Sydney,26
+Essendon,West Coast,30
+Hawthorn,Sydney,32
+Geelong,St Kilda,36
+Collingwood,Brisbane Lions,27
+Melbourne,Carlton,25
+Western Bulldogs,Richmond,28
+North Melbourne,Fitzroy,8
+West Coast,Hawthorn,28
+Carlton,Brisbane Lions,27
+Essendon,North Melbourne,28
+Collingwood,Geelong,23
+Richmond,St Kilda,23
+Fitzroy,Sydney,6
+Melbourne,Western Bulldogs,26
+Carlton,Geelong,18
+St Kilda,Melbourne,30
+Essendon,Brisbane Lions,23
+Collingwood,Richmond,25
+Western Bulldogs,Hawthorn,22
+North Melbourne,Sydney,19
+West Coast,Fitzroy,7
+Richmond,Brisbane Lions,33
+Collingwood,West Coast,27
+North Melbourne,Melbourne,31
+Western Bulldogs,St Kilda,26
+Carlton,Sydney,16
+West Coast,St Kilda,30
+Geelong,Melbourne,37
+Brisbane Lions,Fitzroy,9
+Fitzroy,Geelong,2
+North Melbourne,Geelong,21
+Western Bulldogs,Collingwood,21
+Essendon,Geelong,14
+Fitzroy,Richmond,4
+Carlton,Western Bulldogs,21
+Hawthorn,St Kilda,25
+Melbourne,Sydney,19
+Brisbane Lions,Geelong,23
+North Melbourne,Carlton,28
+Sydney,Brisbane Lions,28
+Geelong,Richmond,39
+St Kilda,Fitzroy,10
+North Melbourne,Western Bulldogs,25
+North Melbourne,St Kilda,27
+Hawthorn,Carlton,29
+Melbourne,Hawthorn,21
+Fitzroy,Carlton,3
+West Coast,Melbourne,36
+Collingwood,Essendon,37
+Adelaide,Hawthorn,23
+St Kilda,Richmond,32
+Carlton,Adelaide,21
+Adelaide,Sydney,26
+West Coast,North Melbourne,29
+Essendon,Adelaide,25
+Sydney,Richmond,29
+Geelong,Carlton,30
+West Coast,Adelaide,30
+Melbourne,Collingwood,19
+Hawthorn,Fitzroy,7
+Adelaide,Western Bulldogs,24
+Essendon,Carlton,34
+St Kilda,Adelaide,17
+West Coast,Essendon,26
+Sydney,Fitzroy,5
+Richmond,Collingwood,24
+North Melbourne,Adelaide,22
+Carlton,Richmond,29
+Geelong,Collingwood,31
+Hawthorn,Essendon,22
+Adelaide,Melbourne,27
+Essendon,Melbourne,25
+Geelong,Adelaide,31
+North Melbourne,Collingwood,18
+Carlton,Collingwood,28
+Adelaide,Fitzroy,6
+Geelong,Hawthorn,35
+Richmond,Melbourne,25
+Adelaide,Richmond,27
+Carlton,West Coast,24
+Adelaide,Brisbane Lions,26
+Collingwood,Adelaide,36
+Western Bulldogs,Essendon,25
+Hawthorn,Adelaide,29
+Adelaide,Carlton,25
+Richmond,Essendon,29
+Melbourne,St Kilda,23
+Sydney,Adelaide,22
+Brisbane Lions,Carlton,27
+Adelaide,Essendon,21
+Hawthorn,Western Bulldogs,27
+St Kilda,Carlton,31
+Western Bulldogs,Adelaide,27
+Geelong,Sydney,35
+Richmond,Western Bulldogs,18
+Fitzroy,North Melbourne,3
+Fitzroy,West Coast,3
+Adelaide,North Melbourne,31
+Hawthorn,West Coast,25
+St Kilda,Essendon,21
+Fitzroy,Essendon,2
+Sydney,West Coast,31
+Fitzroy,Adelaide,3
+Geelong,West Coast,30
+North Melbourne,Essendon,21
+Carlton,Melbourne,23
+Fitzroy,Collingwood,2
+Brisbane Lions,Melbourne,25
+St Kilda,Collingwood,21
+Western Bulldogs,Melbourne,32
+Melbourne,Adelaide,20
+Adelaide,St Kilda,32
+Adelaide,Geelong,21
+Western Bulldogs,West Coast,23
+Adelaide,West Coast,28
+Fitzroy,Melbourne,2
+Collingwood,Hawthorn,20
+St Kilda,Geelong,19
+Adelaide,Collingwood,16
+North Melbourne,Hawthorn,26
+Brisbane Lions,St Kilda,28
+Brisbane Lions,North Melbourne,25
+Richmond,North Melbourne,15
+Brisbane Lions,Essendon,24
+Brisbane Lions,Collingwood,27
+Richmond,Adelaide,18
+Western Bulldogs,Geelong,17
+Richmond,Fremantle,23
+Essendon,Fremantle,25
+Brisbane Lions,Adelaide,23
+Fremantle,Fitzroy,3
+Richmond,Hawthorn,24
+Fremantle,Geelong,16
+Western Bulldogs,Fremantle,21
+Fremantle,Sydney,19
+West Coast,Fremantle,33
+Collingwood,Fremantle,23
+Fremantle,Brisbane Lions,18
+Fremantle,St Kilda,20
+Richmond,West Coast,22
+North Melbourne,Fremantle,19
+Adelaide,Fremantle,24
+Sydney,Essendon,27
+Carlton,Fremantle,20
+Melbourne,Fremantle,19
+Hawthorn,Fremantle,29
+Sydney,North Melbourne,34
+Brisbane Lions,Hawthorn,21
+Geelong,Fremantle,30
+Fremantle,Western Bulldogs,21
+Sydney,Collingwood,21
+Brisbane Lions,Western Bulldogs,26
+Brisbane Lions,West Coast,19
+Fremantle,Carlton,22
+Fremantle,Melbourne,27
+Sydney,Hawthorn,27
+Brisbane Lions,Fremantle,21
+Fitzroy,Fremantle,1
+Fremantle,Richmond,20
+Sydney,Western Bulldogs,21
+St Kilda,Fremantle,24
+Sydney,St Kilda,29
+Fremantle,Collingwood,15
+Collingwood,Port Adelaide,21
+Essendon,Port Adelaide,15
+Fremantle,Hawthorn,15
+Port Adelaide,Geelong,14
+Port Adelaide,Adelaide,28
+Port Adelaide,Brisbane Lions,19
+Port Adelaide,Richmond,25
+St Kilda,Port Adelaide,12
+North Melbourne,Port Adelaide,22
+Port Adelaide,Melbourne,25
+Port Adelaide,Carlton,23
+Sydney,Port Adelaide,22
+Port Adelaide,Western Bulldogs,22
+Fremantle,Essendon,17
+Port Adelaide,Fremantle,25
+Hawthorn,Port Adelaide,18
+West Coast,Port Adelaide,16
+Port Adelaide,Collingwood,18
+Port Adelaide,Essendon,24
+Geelong,Port Adelaide,30
+Adelaide,Port Adelaide,30
+Richmond,Port Adelaide,16
+Port Adelaide,Hawthorn,25
+Fremantle,North Melbourne,18
+Melbourne,Port Adelaide,17
+Sydney,Fremantle,25
+Fremantle,Adelaide,21
+Carlton,Port Adelaide,17
+Port Adelaide,Sydney,16
+Western Bulldogs,Port Adelaide,17
+Fremantle,West Coast,28
+Brisbane Lions,Port Adelaide,23
+Fremantle,Port Adelaide,20
+Port Adelaide,West Coast,24
+Port Adelaide,St Kilda,26
+Port Adelaide,North Melbourne,19
+Carlton,Gold Coast,12
+Western Bulldogs,Gold Coast,13
+Melbourne,Gold Coast,15
+Gold Coast,Port Adelaide,2
+Essendon,Gold Coast,11
+Gold Coast,Brisbane Lions,8
+Adelaide,Gold Coast,16
+Geelong,Gold Coast,13
+West Coast,Gold Coast,11
+North Melbourne,Gold Coast,10
+Hawthorn,Gold Coast,12
+Fremantle,Gold Coast,11
+Sydney,Gold Coast,13
+Gold Coast,Richmond,9
+Collingwood,Gold Coast,11
+St Kilda,Gold Coast,14
+Brisbane Lions,Gold Coast,22
+Sydney,Greater Western Sydney,20
+North Melbourne,Greater Western Sydney,7
+West Coast,Greater Western Sydney,10
+Adelaide,Greater Western Sydney,12
+Western Bulldogs,Greater Western Sydney,15
+Carlton,Greater Western Sydney,7
+Greater Western Sydney,Gold Coast,16
+Brisbane Lions,Greater Western Sydney,9
+Port Adelaide,Gold Coast,15
+Essendon,Greater Western Sydney,8
+Geelong,Greater Western Sydney,9
+Richmond,Greater Western Sydney,12
+Melbourne,Greater Western Sydney,9
+Hawthorn,Greater Western Sydney,9
+Fremantle,Greater Western Sydney,9
+Collingwood,Greater Western Sydney,9
+Greater Western Sydney,Port Adelaide,8
+Gold Coast,Greater Western Sydney,5
+St Kilda,Greater Western Sydney,8
+Gold Coast,Carlton,8
+Gold Coast,St Kilda,6
+Port Adelaide,Greater Western Sydney,9
+Gold Coast,Melbourne,5
+Gold Coast,Western Bulldogs,5
+Gold Coast,North Melbourne,12
+Richmond,Gold Coast,8
+Gold Coast,Collingwood,5
+Greater Western Sydney,Melbourne,10
+Greater Western Sydney,Sydney,11
+Greater Western Sydney,Brisbane Lions,10
+Gold Coast,Geelong,4
+Greater Western Sydney,Carlton,12
+Greater Western Sydney,Western Bulldogs,7
+Greater Western Sydney,St Kilda,9
+Greater Western Sydney,Hawthorn,8
+Greater Western Sydney,Adelaide,7
+Greater Western Sydney,Essendon,10
+Gold Coast,Essendon,6
+Gold Coast,Fremantle,6
+Greater Western Sydney,Geelong,8
+Greater Western Sydney,Fremantle,7
+Greater Western Sydney,Richmond,8
+Greater Western Sydney,North Melbourne,7
+Gold Coast,Hawthorn,7
+Greater Western Sydney,Collingwood,8
+Greater Western Sydney,West Coast,8
+Gold Coast,West Coast,7
+Gold Coast,Sydney,5
+Gold Coast,Adelaide,5

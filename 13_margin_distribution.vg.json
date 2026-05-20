@@ -1,0 +1,109 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Distribution of every match margin per season. Strip plot of all games coloured by whether the home or the away side won; jitter on the y axis avoids overplotting.",
+  "width": "container",
+  "height": 420,
+  "background": "white",
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Inter, system-ui, sans-serif"
+  },
+  "data": {
+    "url": "data/matches.csv"
+  },
+  "transform": [
+    {
+      "calculate": "datum.winner == datum.hteam ? 'Home win' : (datum.winner == 'Draw' ? 'Draw' : 'Away win')",
+      "as": "result_type"
+    },
+    {
+      "calculate": "random()",
+      "as": "jitter"
+    }
+  ],
+  "mark": {
+    "type": "circle",
+    "size": 10,
+    "opacity": 0.45
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "axis": {
+        "labelAngle": -45,
+        "labelOverlap": true,
+        "labelPadding": 6,
+        "title": null,
+        "labelFontSize": 10
+      }
+    },
+    "y": {
+      "field": "margin",
+      "type": "quantitative",
+      "title": "Winning margin (points)",
+      "axis": {
+        "grid": true,
+        "gridColor": "#EAEAEA"
+      },
+      "scale": {
+        "domain": [
+          0,
+          180
+        ]
+      }
+    },
+    "yOffset": {
+      "field": "jitter",
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "result_type",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Home win",
+          "Away win",
+          "Draw"
+        ],
+        "range": [
+          "#0B2545",
+          "#D62828",
+          "#FFD200"
+        ]
+      },
+      "legend": {
+        "orient": "top",
+        "title": null
+      }
+    },
+    "tooltip": [
+      {
+        "field": "year",
+        "title": "Season"
+      },
+      {
+        "field": "hteam",
+        "title": "Home"
+      },
+      {
+        "field": "ateam",
+        "title": "Away"
+      },
+      {
+        "field": "winner",
+        "title": "Winner"
+      },
+      {
+        "field": "margin",
+        "title": "Margin"
+      },
+      {
+        "field": "venue",
+        "title": "Venue"
+      }
+    ]
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Average winning margin per season, 1990-2025. Smaller numbers = closer, tighter contests.",
+  "width": "container",
+  "height": 280,
+  "background": "white",
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Inter, system-ui, sans-serif"
+  },
+  "data": {
+    "url": "data/season_summary.csv"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "area",
+        "interpolate": "monotone",
+        "opacity": 0.15,
+        "color": "#0B2545"
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative",
+          "title": null,
+          "axis": {
+            "format": "d",
+            "grid": false
+          }
+        },
+        "y": {
+          "field": "avg_margin",
+          "type": "quantitative",
+          "title": "Average winning margin (points)",
+          "axis": {
+            "grid": true,
+            "gridColor": "#EAEAEA"
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "interpolate": "monotone",
+        "stroke": "#0B2545",
+        "strokeWidth": 2.2,
+        "point": {
+          "size": 40,
+          "color": "#0B2545",
+          "filled": true
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative",
+          "axis": {
+            "format": "d"
+          }
+        },
+        "y": {
+          "field": "avg_margin",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {
+            "field": "year",
+            "title": "Season"
+          },
+          {
+            "field": "avg_margin",
+            "title": "Avg margin"
+          },
+          {
+            "field": "avg_total_score",
+            "title": "Avg total score"
+          },
+          {
+            "field": "games",
+            "title": "Games played"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": 2007,
+            "y": 25,
+            "lbl": "Tightest era on record"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "fontStyle": "italic",
+        "color": "#7A1F1F",
+        "fontSize": 11,
+        "dx": 0
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "lbl"
+        }
+      }
+    }
+  ]
+}

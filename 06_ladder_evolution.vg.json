@@ -1,0 +1,177 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Final ladder position of every team every season, 1990-2025. Small multiples, one tile per club, y axis is inverted (1 = top of ladder). Premiership-winning years drawn as filled markers.",
+  "background": "white",
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Inter, system-ui, sans-serif",
+    "axis": {
+      "grid": false,
+      "domain": false,
+      "ticks": false
+    }
+  },
+  "data": {
+    "url": "data/season_standings.csv"
+  },
+  "transform": [
+    {
+      "lookup": "team",
+      "from": {
+        "data": {
+          "url": "data/premiership_counts.csv"
+        },
+        "key": "team",
+        "fields": [
+          "primary_color"
+        ]
+      }
+    },
+    {
+      "lookup": "team",
+      "from": {
+        "data": {
+          "url": "data/premierships.csv"
+        },
+        "key": "winner",
+        "fields": [
+          "year"
+        ]
+      },
+      "as": "prem_year"
+    },
+    {
+      "calculate": "datum.prem_year == datum.year ? 'Premier' : 'Season'",
+      "as": "prem_marker"
+    }
+  ],
+  "columns": 6,
+  "facet": {
+    "field": "team",
+    "type": "nominal",
+    "header": {
+      "labelFontWeight": 600,
+      "labelFontSize": 11,
+      "title": null
+    },
+    "sort": {
+      "op": "min",
+      "field": "rank"
+    }
+  },
+  "spec": {
+    "width": 140,
+    "height": 80,
+    "layer": [
+      {
+        "mark": {
+          "type": "line",
+          "interpolate": "monotone",
+          "strokeWidth": 1.6
+        },
+        "encoding": {
+          "x": {
+            "field": "year",
+            "type": "quantitative",
+            "axis": {
+              "format": "d",
+              "values": [
+                1990,
+                2010,
+                2025
+              ],
+              "labelFontSize": 8
+            },
+            "title": null,
+            "scale": {
+              "domain": [
+                1990,
+                2025
+              ]
+            }
+          },
+          "y": {
+            "field": "rank",
+            "type": "quantitative",
+            "scale": {
+              "reverse": true,
+              "domain": [
+                1,
+                18
+              ]
+            },
+            "axis": {
+              "values": [
+                1,
+                8,
+                18
+              ],
+              "labelFontSize": 8
+            },
+            "title": null
+          },
+          "color": {
+            "field": "primary_color",
+            "type": "nominal",
+            "scale": null,
+            "legend": null
+          }
+        }
+      },
+      {
+        "transform": [
+          {
+            "filter": "datum.prem_marker == 'Premier'"
+          }
+        ],
+        "mark": {
+          "type": "point",
+          "filled": true,
+          "size": 70,
+          "stroke": "#FFD200",
+          "strokeWidth": 1.5
+        },
+        "encoding": {
+          "x": {
+            "field": "year",
+            "type": "quantitative",
+            "scale": {
+              "domain": [
+                1990,
+                2025
+              ]
+            }
+          },
+          "y": {
+            "field": "rank",
+            "type": "quantitative",
+            "scale": {
+              "reverse": true,
+              "domain": [
+                1,
+                18
+              ]
+            }
+          },
+          "color": {
+            "field": "primary_color",
+            "type": "nominal",
+            "scale": null
+          },
+          "tooltip": [
+            {
+              "field": "team",
+              "title": "Club"
+            },
+            {
+              "field": "year",
+              "title": "Premiership year"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
