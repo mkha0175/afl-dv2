@@ -11,7 +11,7 @@
     "font": "Inter, system-ui, sans-serif"
   },
   "data": {
-    "url": "data/travel_ladder.csv"
+    "url": "travel_ladder.csv"
   },
   "transform": [
     {

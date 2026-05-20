@@ -11,7 +11,7 @@
     "font": "Inter, system-ui, sans-serif"
   },
   "data": {
-    "url": "data/venue_state_year.csv"
+    "url": "venue_state_year.csv"
   },
   "mark": {
     "type": "area",

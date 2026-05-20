@@ -14,14 +14,14 @@
     }
   },
   "data": {
-    "url": "data/season_standings.csv"
+    "url": "season_standings.csv"
   },
   "transform": [
     {
       "lookup": "team",
       "from": {
         "data": {
-          "url": "data/premiership_counts.csv"
+          "url": "premiership_counts.csv"
         },
         "key": "team",
         "fields": [
@@ -33,7 +33,7 @@
       "lookup": "team",
       "from": {
         "data": {
-          "url": "data/premierships.csv"
+          "url": "premierships.csv"
         },
         "key": "winner",
         "fields": [

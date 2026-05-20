@@ -1,19 +1,20 @@
 // app.js — load every Vega-Lite spec and embed it into its container.
+// Flat-paths version: every file lives at the repo root (no charts/ or data/ folders).
 
 const CHARTS = [
-  ["chart-01", "charts/01_team_map.vg.json"],
-  ["chart-02", "charts/02_premiership_timeline.vg.json"],
-  ["chart-03", "charts/03_premiership_count.vg.json"],
-  ["chart-04", "charts/04_brownlow_count.vg.json"],
-  ["chart-05", "charts/05_grand_final_scores.vg.json"],
-  ["chart-06", "charts/06_ladder_evolution.vg.json"],
-  ["chart-07", "charts/07_head_to_head.vg.json"],
-  ["chart-08", "charts/08_travel_map.vg.json"],
-  ["chart-09", "charts/09_travel_vs_ladder.vg.json"],
-  ["chart-10", "charts/10_venue_state_stream.vg.json"],
-  ["chart-11", "charts/11_avg_margin_trend.vg.json"],
-  ["chart-12", "charts/12_home_advantage.vg.json"],
-  ["chart-13", "charts/13_margin_distribution.vg.json"],
+  ["chart-01", "01_team_map.vg.json"],
+  ["chart-02", "02_premiership_timeline.vg.json"],
+  ["chart-03", "03_premiership_count.vg.json"],
+  ["chart-04", "04_brownlow_count.vg.json"],
+  ["chart-05", "05_grand_final_scores.vg.json"],
+  ["chart-06", "06_ladder_evolution.vg.json"],
+  ["chart-07", "07_head_to_head.vg.json"],
+  ["chart-08", "08_travel_map.vg.json"],
+  ["chart-09", "09_travel_vs_ladder.vg.json"],
+  ["chart-10", "10_venue_state_stream.vg.json"],
+  ["chart-11", "11_avg_margin_trend.vg.json"],
+  ["chart-12", "12_home_advantage.vg.json"],
+  ["chart-13", "13_margin_distribution.vg.json"],
 ];
 
 const EMBED_OPTS = {

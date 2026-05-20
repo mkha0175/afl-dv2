@@ -14,7 +14,7 @@
       "layer": [
         {
           "data": {
-            "url": "data/australia_states.geojson",
+            "url": "australia_states.geojson",
             "format": {"type": "json", "property": "features"}
           },
           "mark": {"type": "geoshape", "fill": "#F6F6F2", "stroke": "#BFBFBF", "strokeWidth": 0.7}
@@ -87,7 +87,7 @@
     {
       "width": 900,
       "height": 380,
-      "data": {"url": "data/team_totals.csv"},
+      "data": {"url": "team_totals.csv"},
       "layer": [
         {
           "mark": {"type": "bar", "height": {"band": 0.7}, "cornerRadiusEnd": 3},

@@ -12,18 +12,18 @@
   "layer": [
     {
       "data": {
-        "url": "data/australia_states.geojson",
+        "url": "australia_states.geojson",
         "format": {"type": "json", "property": "features"}
       },
       "mark": {"type": "geoshape", "fill": "white", "stroke": "#BFBFBF", "strokeWidth": 0.6}
     },
     {
-      "data": {"url": "data/travel.csv"},
+      "data": {"url": "travel.csv"},
       "transform": [
         {"filter": "datum.year == 2025"},
         {"lookup": "team",
          "from": {
-           "data": {"url": "data/teams.csv"},
+           "data": {"url": "teams.csv"},
            "key": "name",
            "fields": ["lat", "lon", "state", "primary_color"]
          }}

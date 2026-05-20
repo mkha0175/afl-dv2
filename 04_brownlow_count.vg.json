@@ -8,7 +8,7 @@
     "view": {"stroke": null},
     "font": "Inter, system-ui, sans-serif"
   },
-  "data": {"url": "data/brownlow.csv"},
+  "data": {"url": "brownlow.csv"},
   "transform": [
     {"calculate": "datum.team == 'Footscray' ? 'Western Bulldogs' : (datum.team == 'Brisbane Bears' ? 'Brisbane Lions' : datum.team)", "as": "club"},
     {"calculate": "datum.player + '  (' + datum.year + ')'", "as": "label"}

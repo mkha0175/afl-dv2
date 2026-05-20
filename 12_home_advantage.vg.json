@@ -11,7 +11,7 @@
     "font": "Inter, system-ui, sans-serif"
   },
   "data": {
-    "url": "data/season_summary.csv"
+    "url": "season_summary.csv"
   },
   "layer": [
     {
