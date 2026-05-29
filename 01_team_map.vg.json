@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Two linked views of where the AFL lives. Top: a map of Australia with one labeled bubble per home state, sized by total wins for clubs based there 1990-2025. Bottom: horizontal bar chart of all 18 clubs ranked by wins, coloured to match. Combined idiom: geographic shapes (state outlines) + proportional symbols (bubbles) + bars + text, linked through a shared state colour palette.",
+  "description": "Two linked views about where the AFL lives. Top: a choropleth of Australia shaded by the number of resident AFL clubs (deeper navy = more clubs), with state labels and one big proportional-symbol bubble per state showing total wins. Bottom: a horizontal bar chart of all 18 clubs ranked by wins, coloured to match. Combined idiom: geographic choropleth + proportional symbols + bars + text annotations, linked through a shared state colour scheme.",
   "background": "white",
   "config": {
     "view": {"stroke": null},
@@ -9,38 +9,91 @@
   "vconcat": [
     {
       "width": 900,
-      "height": 420,
-      "projection": {"type": "mercator", "center": [134, -26], "scale": 660},
+      "height": 460,
+      "projection": {"type": "mercator", "center": [134, -26], "scale": 640},
       "layer": [
         {
           "data": {
             "url": "australia_states.geojson",
             "format": {"type": "json", "property": "features"}
           },
-          "mark": {"type": "geoshape", "fill": "#F6F6F2", "stroke": "#BFBFBF", "strokeWidth": 0.7}
+          "transform": [
+            {"calculate": "datum.properties.STATE_NAME", "as": "state_name"},
+            {"lookup": "state_name",
+             "from": {
+               "data": {"values": [
+                 {"name": "Victoria",                       "clubs": 10},
+                 {"name": "South Australia",                "clubs": 2},
+                 {"name": "Western Australia",              "clubs": 2},
+                 {"name": "New South Wales",                "clubs": 2},
+                 {"name": "Queensland",                     "clubs": 2},
+                 {"name": "Tasmania",                       "clubs": 0},
+                 {"name": "Northern Territory",             "clubs": 0},
+                 {"name": "Australian Capital Territory",   "clubs": 0}
+               ]},
+               "key": "name",
+               "fields": ["clubs"]
+             }}
+          ],
+          "mark": {"type": "geoshape", "stroke": "#FFFFFF", "strokeWidth": 1.6},
+          "encoding": {
+            "color": {
+              "field": "clubs", "type": "quantitative",
+              "scale": {"domain": [0, 2, 10], "range": ["#F4EFE4", "#D7DDEC", "#1E3F77"]},
+              "title": "AFL clubs in state",
+              "legend": {"orient": "bottom-left", "format": "d", "values": [0, 2, 10], "direction": "horizontal", "gradientLength": 120, "titleFontSize": 11, "labelFontSize": 10}
+            },
+            "tooltip": [
+              {"field": "properties.STATE_NAME", "title": "State"},
+              {"field": "clubs", "title": "AFL clubs based here"}
+            ]
+          }
+        },
+        {
+          "description": "soft inner outline for depth",
+          "data": {
+            "url": "australia_states.geojson",
+            "format": {"type": "json", "property": "features"}
+          },
+          "mark": {"type": "geoshape", "fill": null, "stroke": "rgba(8,21,43,0.18)", "strokeWidth": 0.4}
+        },
+        {
+          "description": "state name labels — only for states with no clubs (avoid bubble overlap)",
+          "data": {"values": [
+            {"label": "NORTHERN\nTERRITORY", "lat": -19.5, "lon": 133.6},
+            {"label": "TASMANIA",  "lat": -42.2, "lon": 146.9},
+            {"label": "ACT",       "lat": -35.4, "lon": 149.1}
+          ]},
+          "mark": {"type": "text", "fontSize": 10, "fontWeight": 600, "letterSpacing": 1, "color": "#475569", "lineBreak": "\n"},
+          "encoding": {
+            "longitude": {"field": "lon", "type": "quantitative"},
+            "latitude":  {"field": "lat", "type": "quantitative"},
+            "text":      {"field": "label"}
+          }
         },
         {
           "data": {"values": [
-            {"state": "VIC", "lat": -37.10, "lon": 144.50, "wins": 4139, "clubs": 10, "premierships": 22, "label_dx": 0, "label_dy": 64},
-            {"state": "SA",  "lat": -34.93, "lon": 138.60, "wins": 772,  "clubs": 2,  "premierships": 3,  "label_dx": -10, "label_dy": -36},
-            {"state": "WA",  "lat": -31.95, "lon": 115.86, "wins": 763,  "clubs": 2,  "premierships": 4,  "label_dx": 0, "label_dy": -36},
-            {"state": "NSW", "lat": -33.86, "lon": 151.20, "wins": 599,  "clubs": 2,  "premierships": 2,  "label_dx": 12, "label_dy": 38},
-            {"state": "QLD", "lat": -27.47, "lon": 153.02, "wins": 501,  "clubs": 2,  "premierships": 5,  "label_dx": 12, "label_dy": -28}
+            {"state": "VIC", "lat": -37.10, "lon": 144.50, "wins": 4139, "clubs": 10, "premierships": 22},
+            {"state": "SA",  "lat": -34.93, "lon": 138.60, "wins": 772,  "clubs": 2,  "premierships": 3},
+            {"state": "WA",  "lat": -31.95, "lon": 115.86, "wins": 763,  "clubs": 2,  "premierships": 4},
+            {"state": "NSW", "lat": -33.86, "lon": 151.20, "wins": 599,  "clubs": 2,  "premierships": 2},
+            {"state": "QLD", "lat": -27.47, "lon": 153.02, "wins": 501,  "clubs": 2,  "premierships": 5}
           ]},
-          "mark": {"type": "circle", "stroke": "white", "strokeWidth": 2, "opacity": 0.92},
+          "mark": {"type": "circle", "stroke": "white", "strokeWidth": 3, "opacity": 0.95},
           "encoding": {
             "longitude": {"field": "lon", "type": "quantitative"},
             "latitude":  {"field": "lat", "type": "quantitative"},
             "size": {
               "field": "wins", "type": "quantitative",
               "scale": {"range": [400, 5500]},
-              "legend": null
+              "title": "Total wins (state)",
+              "legend": {"orient": "bottom-right", "values": [500, 2000, 4000], "titleFontSize": 11, "labelFontSize": 10, "symbolFillColor": "#475569"}
             },
             "color": {
               "field": "state", "type": "nominal",
               "scale": {
                 "domain": ["VIC", "SA", "WA", "NSW", "QLD"],
-                "range":  ["#0B2545", "#C0392B", "#2E86AB", "#F39C12", "#117A65"]
+                "range":  ["#08152B", "#7C0A02", "#1E5E8C", "#B5851A", "#0A6B3E"]
               },
               "legend": null
             },
@@ -53,14 +106,15 @@
           }
         },
         {
+          "description": "state codes inside bubbles",
           "data": {"values": [
-            {"label": "VIC", "lat": -37.10, "lon": 144.50, "sub": "10 clubs / 22 flags"},
-            {"label": "SA",  "lat": -34.93, "lon": 138.60, "sub": "2 clubs / 3 flags"},
-            {"label": "WA",  "lat": -31.95, "lon": 115.86, "sub": "2 clubs / 4 flags"},
-            {"label": "NSW", "lat": -33.86, "lon": 151.20, "sub": "2 clubs / 2 flags"},
-            {"label": "QLD", "lat": -27.47, "lon": 153.02, "sub": "2 clubs / 5 flags"}
+            {"label": "VIC", "lat": -37.10, "lon": 144.50},
+            {"label": "SA",  "lat": -34.93, "lon": 138.60},
+            {"label": "WA",  "lat": -31.95, "lon": 115.86},
+            {"label": "NSW", "lat": -33.86, "lon": 151.20},
+            {"label": "QLD", "lat": -27.47, "lon": 153.02}
           ]},
-          "mark": {"type": "text", "fontSize": 13, "fontWeight": 700, "color": "white", "align": "center", "baseline": "middle"},
+          "mark": {"type": "text", "fontSize": 13, "fontWeight": 800, "color": "white", "align": "center", "baseline": "middle"},
           "encoding": {
             "longitude": {"field": "lon", "type": "quantitative"},
             "latitude":  {"field": "lat", "type": "quantitative"},
@@ -68,14 +122,15 @@
           }
         },
         {
+          "description": "italic captions next to each bubble",
           "data": {"values": [
-            {"label": "10 clubs · 22 flags", "lat": -42.50, "lon": 144.50},
+            {"label": "10 clubs · 22 flags", "lat": -42.5, "lon": 144.50},
             {"label": "2 clubs · 3 flags",   "lat": -34.93, "lon": 132.00},
             {"label": "2 clubs · 4 flags",   "lat": -32.50, "lon": 110.50},
-            {"label": "2 clubs · 2 flags",   "lat": -36.00, "lon": 155.50},
+            {"label": "2 clubs · 2 flags",   "lat": -37.50, "lon": 153.50},
             {"label": "2 clubs · 5 flags",   "lat": -27.47, "lon": 158.50}
           ]},
-          "mark": {"type": "text", "fontSize": 10, "fontWeight": 500, "fontStyle": "italic", "color": "#4A4A52", "align": "center", "baseline": "middle"},
+          "mark": {"type": "text", "fontSize": 10, "fontWeight": 500, "fontStyle": "italic", "color": "#475569", "align": "center", "baseline": "middle"},
           "encoding": {
             "longitude": {"field": "lon", "type": "quantitative"},
             "latitude":  {"field": "lat", "type": "quantitative"},
@@ -90,7 +145,7 @@
       "data": {"url": "team_totals.csv"},
       "layer": [
         {
-          "mark": {"type": "bar", "height": {"band": 0.7}, "cornerRadiusEnd": 3},
+          "mark": {"type": "bar", "height": {"band": 0.7}, "cornerRadiusEnd": 4},
           "encoding": {
             "x": {"field": "wins_1990_2025", "type": "quantitative",
                   "title": "Wins 1990 - 2025",
@@ -101,10 +156,10 @@
               "field": "state", "type": "nominal",
               "scale": {
                 "domain": ["VIC", "SA", "WA", "NSW", "QLD"],
-                "range":  ["#0B2545", "#C0392B", "#2E86AB", "#F39C12", "#117A65"]
+                "range":  ["#08152B", "#7C0A02", "#1E5E8C", "#B5851A", "#0A6B3E"]
               },
               "title": "Home state",
-              "legend": {"orient": "top", "direction": "horizontal"}
+              "legend": {"orient": "top", "direction": "horizontal", "symbolSize": 80}
             },
             "tooltip": [
               {"field": "team", "title": "Club"},
@@ -117,7 +172,7 @@
           }
         },
         {
-          "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 6, "fontSize": 11, "fontWeight": 700, "color": "#1B1B1E"},
+          "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 6, "fontSize": 11, "fontWeight": 700, "color": "#08152B"},
           "encoding": {
             "x": {"field": "wins_1990_2025", "type": "quantitative"},
             "y": {"field": "team", "type": "nominal", "sort": "-x"},

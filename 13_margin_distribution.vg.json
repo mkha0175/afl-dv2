@@ -1,109 +1,38 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Distribution of every match margin per season. Strip plot of all games coloured by whether the home or the away side won; jitter on the y axis avoids overplotting.",
+  "description": "Box-and-whisker plot of every match margin, one box per season 1990-2025. Each box spans the interquartile range (25th to 75th percentile), the gold tick is the median, the whiskers reach the 1.5 * IQR fence, and the navy dots beyond are outliers - exceptionally lopsided games. The boxes have visibly flattened since 2017 - tighter contests, fewer blowouts.",
   "width": "container",
   "height": 420,
   "background": "white",
   "config": {
-    "view": {
-      "stroke": null
-    },
+    "view": {"stroke": null},
     "font": "Inter, system-ui, sans-serif"
   },
-  "data": {
-    "url": "matches.csv"
-  },
-  "transform": [
-    {
-      "calculate": "datum.winner == datum.hteam ? 'Home win' : (datum.winner == 'Draw' ? 'Draw' : 'Away win')",
-      "as": "result_type"
-    },
-    {
-      "calculate": "random()",
-      "as": "jitter"
-    }
-  ],
+  "data": {"url": "matches.csv"},
+  "transform": [{"calculate": "'All matches per season'", "as": "series"}],
   "mark": {
-    "type": "circle",
-    "size": 10,
-    "opacity": 0.45
+    "type": "boxplot",
+    "extent": 1.5,
+    "size": 14,
+    "median": {"color": "#E6B325", "strokeWidth": 2.4},
+    "box": {"fill": "#1E3F77", "fillOpacity": 0.7, "stroke": "#08152B", "strokeWidth": 0.8},
+    "rule": {"stroke": "#08152B", "strokeWidth": 0.9},
+    "ticks": {"stroke": "#08152B", "strokeWidth": 0.9},
+    "outliers": {"size": 14, "color": "#08152B", "opacity": 0.45, "filled": true}
   },
   "encoding": {
-    "x": {
-      "field": "year",
-      "type": "ordinal",
-      "axis": {
-        "labelAngle": -45,
-        "labelOverlap": true,
-        "labelPadding": 6,
-        "title": null,
-        "labelFontSize": 10
-      }
-    },
-    "y": {
-      "field": "margin",
-      "type": "quantitative",
-      "title": "Winning margin (points)",
-      "axis": {
-        "grid": true,
-        "gridColor": "#EAEAEA"
-      },
-      "scale": {
-        "domain": [
-          0,
-          180
-        ]
-      }
-    },
-    "yOffset": {
-      "field": "jitter",
-      "type": "quantitative"
-    },
+    "x": {"field": "year", "type": "ordinal", "title": null,
+          "axis": {"labelAngle": -45, "labelOverlap": true, "labelFontSize": 10, "ticks": false, "domain": false}},
+    "y": {"field": "margin", "type": "quantitative", "title": "Winning margin (points)",
+          "axis": {"grid": true, "gridColor": "#EAEAEA"},
+          "scale": {"domain": [0, 180]}},
+    "tooltip": [{"field": "year", "title": "Season"}],
     "color": {
-      "field": "result_type",
+      "field": "series",
       "type": "nominal",
-      "scale": {
-        "domain": [
-          "Home win",
-          "Away win",
-          "Draw"
-        ],
-        "range": [
-          "#0B2545",
-          "#D62828",
-          "#FFD200"
-        ]
-      },
-      "legend": {
-        "orient": "top",
-        "title": null
-      }
-    },
-    "tooltip": [
-      {
-        "field": "year",
-        "title": "Season"
-      },
-      {
-        "field": "hteam",
-        "title": "Home"
-      },
-      {
-        "field": "ateam",
-        "title": "Away"
-      },
-      {
-        "field": "winner",
-        "title": "Winner"
-      },
-      {
-        "field": "margin",
-        "title": "Margin"
-      },
-      {
-        "field": "venue",
-        "title": "Venue"
-      }
-    ]
+      "scale": {"domain": ["All matches per season"], "range": ["#1E3F77"]},
+      "title": null,
+      "legend": {"orient": "top", "direction": "horizontal", "labelFontSize": 11, "symbolType": "square", "symbolSize": 140}
+    }
   }
 }

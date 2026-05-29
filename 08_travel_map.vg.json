@@ -1,54 +1,37 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Geographic map of kilometres travelled by each club in the 2025 season. Derived data: sum of haversine distances from each club's home city to every venue it played.",
+  "description": "Travel heatmap: 18 clubs by 36 seasons (1990-2025). Each cell is shaded by the total kilometres a club flew that season (derived data: sum of haversine distance from the club's home city to every venue they played). Reading down a column shows the spread of travel within a season; reading across a row shows how a club's travel has grown as the fixture has expanded.",
   "width": "container",
-  "height": 480,
+  "height": 460,
   "background": "white",
   "config": {
     "view": {"stroke": null},
     "font": "Inter, system-ui, sans-serif"
   },
-  "projection": {"type": "mercator", "center": [136, -28], "scale": 780},
-  "layer": [
-    {
-      "data": {
-        "url": "australia_states.geojson",
-        "format": {"type": "json", "property": "features"}
-      },
-      "mark": {"type": "geoshape", "fill": "white", "stroke": "#BFBFBF", "strokeWidth": 0.6}
+  "data": {"url": "travel.csv"},
+  "transform": [
+    {"lookup": "team",
+     "from": {"data": {"url": "teams.csv"}, "key": "name", "fields": ["state", "debut"]}},
+    {"filter": "datum.km > 0"}
+  ],
+  "mark": {"type": "rect", "stroke": "white", "strokeWidth": 0.8},
+  "encoding": {
+    "x": {"field": "year", "type": "ordinal", "title": null,
+          "axis": {"labelAngle": -45, "labelFontSize": 9, "labelOverlap": true, "ticks": false, "domain": false}},
+    "y": {"field": "team", "type": "nominal", "title": null,
+          "sort": {"op": "median", "field": "km", "order": "descending"},
+          "axis": {"labelFontWeight": 600, "labelFontSize": 10, "ticks": false, "domain": false}},
+    "color": {
+      "field": "km", "type": "quantitative",
+      "scale": {"scheme": "oranges", "type": "linear"},
+      "title": "km flown in season",
+      "legend": {"orient": "right", "format": ",.0f"}
     },
-    {
-      "data": {"url": "travel.csv"},
-      "transform": [
-        {"filter": "datum.year == 2025"},
-        {"lookup": "team",
-         "from": {
-           "data": {"url": "teams.csv"},
-           "key": "name",
-           "fields": ["lat", "lon", "state", "primary_color"]
-         }}
-      ],
-      "mark": {"type": "circle", "stroke": "white", "strokeWidth": 1.5, "opacity": 0.9},
-      "encoding": {
-        "longitude": {"field": "lon", "type": "quantitative"},
-        "latitude":  {"field": "lat", "type": "quantitative"},
-        "size": {
-          "field": "km", "type": "quantitative",
-          "scale": {"range": [80, 1400]},
-          "title": "Distance flown in 2025 (km)",
-          "legend": {"orient": "bottom-right", "format": ","}
-        },
-        "color": {
-          "field": "km", "type": "quantitative",
-          "scale": {"scheme": "reds"},
-          "legend": null
-        },
-        "tooltip": [
-          {"field": "team", "title": "Club"},
-          {"field": "km", "title": "Distance flown (km)", "format": ","},
-          {"field": "state", "title": "Home state"}
-        ]
-      }
-    }
-  ]
+    "tooltip": [
+      {"field": "team", "title": "Club"},
+      {"field": "year", "title": "Season"},
+      {"field": "state", "title": "Home state"},
+      {"field": "km", "title": "Distance flown (km)", "format": ","}
+    ]
+  }
 }

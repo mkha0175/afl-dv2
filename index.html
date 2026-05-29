@@ -16,18 +16,60 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.21.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0"></script>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 
+<div class="progress-bar" id="progress-bar"></div>
+
+<nav class="side-nav" aria-label="Sections">
+  <a href="#where"     data-label="Where the AFL lives"     class="dot-link"></a>
+  <a href="#champions" data-label="Champions of the modern era" class="dot-link"></a>
+  <a href="#ladder"    data-label="Reading the ladder"     class="dot-link"></a>
+  <a href="#travel"    data-label="The travelling circus"  class="dot-link"></a>
+  <a href="#game"      data-label="How the game has changed" class="dot-link"></a>
+</nav>
+
 <header class="hero">
   <div class="hero-inner">
-    <p class="kicker">A Data Visualisation 2 Story <span class="dot">&middot;</span> FIT2179</p>
-    <h1 class="title">Three Decades of <span class="accent">The Footy</span></h1>
-    <p class="subtitle">Thirty-five seasons of the Australian Football League, 1990 to 2025, drawn from <strong>6,872 matches</strong> across <strong>43 venues</strong> and <strong>18 clubs</strong>.</p>
-    <p class="byline">By Muaaz Khan (34445811) <span class="dot">&middot;</span> Monash University, May 2026</p>
+    <h1 class="title">The <span class="accent">Footy</span></h1>
+    <p class="subtitle">Three decades of the AFL, 1990 to 2025.</p>
+    <p class="byline">Muaaz Khan &middot; 34445811</p>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">
+    <span>scroll</span>
+    <span class="scroll-line"></span>
   </div>
 </header>
+
+<section class="stats-strip" aria-label="At a glance">
+  <div class="stats-grid">
+    <div class="stat">
+      <div class="stat-num" data-count="35">0</div>
+      <div class="stat-lbl">seasons</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-count="6872">0</div>
+      <div class="stat-lbl">matches</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-count="18">0</div>
+      <div class="stat-lbl">clubs</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-count="43">0</div>
+      <div class="stat-lbl">venues</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-count="40">0</div>
+      <div class="stat-lbl">Brownlows</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-count="13">0</div>
+      <div class="stat-lbl">visualisations</div>
+    </div>
+  </div>
+</section>
 
 <main class="container">
 
@@ -35,7 +77,10 @@
        SECTION 1 — Where the AFL lives
        =================================================================== -->
   <section id="where" class="section">
-    <p class="section-num">01</p>
+    <div class="section-eyebrow">
+      <span class="ch-num">01</span>
+      <span class="ch-lbl">Chapter</span>
+    </div>
     <h2 class="section-title">Where the AFL lives</h2>
     <p class="lede">
       Despite the &ldquo;national league&rdquo; branding, the AFL still has a centre of gravity firmly on the south-east coast.
@@ -59,7 +104,10 @@
        SECTION 2 — Champions of the modern era
        =================================================================== -->
   <section id="champions" class="section">
-    <p class="section-num">02</p>
+    <div class="section-eyebrow">
+      <span class="ch-num">02</span>
+      <span class="ch-lbl">Chapter</span>
+    </div>
     <h2 class="section-title">Champions of the modern era</h2>
     <p class="lede">
       Two trophies define an AFL season: the <strong>Premiership Cup</strong> for the winning club, and the <strong>Brownlow Medal</strong> for the player judged best and fairest. The lane chart below puts every premier on a timeline. Click a club in the legend to highlight its years of glory.
@@ -69,14 +117,10 @@
       One coloured square per Grand Final win. Hawthorn&rsquo;s three-peat (2013-15) and Brisbane&rsquo;s (2001-03) stand out as the only true dynasties of the era; the most recent back-to-back belongs to Brisbane again, in 2024 and 2025.
     </p>
 
-    <div class="grid two-col">
-      <div>
-        <h3 class="sub-title">Total premierships per club</h3>
-        <figure class="chart" id="chart-03"></figure>
-      </div>
-    </div>
+    <h3 class="sub-title">Total premierships per club &mdash; a trophy cabinet</h3>
+    <figure class="chart big-chart" id="chart-03"></figure>
     <p class="caption">
-      Bar + dot strip: a faded bar shows the total count, and one coloured dot per premiership sits along the bar in chronological order. Hover any dot for the year and the result.
+      Isotype-style pictogram: every Grand Final win is rendered as a single &#127942; trophy, arranged in a row per club and sorted top-to-bottom by total count. Each trophy carries the winning year underneath it; hover for the full Grand Final result (margin, runner-up, score). The bold number on the right is the club&rsquo;s premiership tally for the 1990 - 2025 era.
     </p>
 
     <h3 class="sub-title space-top">The Brownlow leaderboard &mdash; every medallist 1990 to 2025</h3>
@@ -96,7 +140,10 @@
        SECTION 3 — Reading the ladder
        =================================================================== -->
   <section id="ladder" class="section">
-    <p class="section-num">03</p>
+    <div class="section-eyebrow">
+      <span class="ch-num">03</span>
+      <span class="ch-lbl">Chapter</span>
+    </div>
     <h2 class="section-title">Reading the ladder</h2>
     <p class="lede">
       The final ladder is a club&rsquo;s annual report card. The grid below stacks 35 years of report cards side by side, one tile per club. The y axis is inverted: line near the top of a tile is a top-of-the-ladder season; line near the bottom is the wooden spoon. The gold-ringed dots mark premiership years.
@@ -120,14 +167,17 @@
        SECTION 4 — The travelling circus
        =================================================================== -->
   <section id="travel" class="section">
-    <p class="section-num">04</p>
+    <div class="section-eyebrow">
+      <span class="ch-num">04</span>
+      <span class="ch-lbl">Chapter</span>
+    </div>
     <h2 class="section-title">The travelling circus</h2>
     <p class="lede">
-      An AFL season is a freight problem. Each non-Victorian club spends most of its &ldquo;away&rdquo; rounds flying east; each Victorian club takes annual trips west, north and across the Bass Strait. The map below shows how far each club <em>actually flew</em> in 2025, calculated by adding the great-circle distance from the club&rsquo;s home city to every venue it played at that season.
+      An AFL season is a freight problem. Each non-Victorian club spends most of its &ldquo;away&rdquo; rounds flying east; each Victorian club takes annual trips west, north and across the Bass Strait. The heatmap below tracks 35 years of that freight problem: one row per club, one column per season, cell darkness = kilometres flown that year (derived from every home-to-venue great-circle distance).
     </p>
     <figure class="chart big-chart" id="chart-08"></figure>
     <p class="caption">
-      Bigger and darker circles flew further. Fremantle and West Coast (both based in Perth) and the Gold Coast Suns lead the table, as expected. Victorian clubs sit on or near each other in Melbourne, where their bubble sizes overlap.
+      Rows are sorted by median travel, so the most-travelled clubs (Fremantle, West Coast, Gold Coast, Brisbane) sit at the top. Whole rows go dark for the COVID-2020 column (every team's travel was unusual) and lighten when newer non-Victorian clubs join, redistributing the fixture load. Empty cells are seasons before a club existed.
     </p>
 
     <h3 class="sub-title space-top">Does travel hurt performance?</h3>
@@ -144,7 +194,10 @@
        SECTION 5 — How the game has changed
        =================================================================== -->
   <section id="game" class="section">
-    <p class="section-num">05</p>
+    <div class="section-eyebrow">
+      <span class="ch-num">05</span>
+      <span class="ch-lbl">Chapter</span>
+    </div>
     <h2 class="section-title">How the game has changed</h2>
     <p class="lede">
       The AFL of 1990 looked different from the AFL of today: bigger scores, bigger blow-outs, fewer interstate trips. The two charts below track two of those shifts season by season.
@@ -164,13 +217,13 @@
       Margins have trended down, especially since 2017 as the AFL has equalised the talent pool through the draft and salary cap. Home advantage has also softened, though it still sits comfortably above 50%.
     </p>
 
-    <h3 class="sub-title space-top">Every margin, every season</h3>
+    <h3 class="sub-title space-top">Every margin, every season &mdash; the spread</h3>
     <p class="lede">
-      A strip plot of all 6,872 matches: each dot is a single game, vertical position is the winning margin. Reading the chart left to right, you can see the cloud of dots compress towards the bottom in recent seasons &mdash; fewer huge wins, more tight finishes.
+      Each box-and-whisker captures every match in one season. The dark blue box is the middle 50% of winning margins, the gold tick inside is the median, the whiskers reach the 1.5 &times; IQR fence, and the dots beyond are outliers &mdash; the truly lopsided wins. Read the chart left to right and the boxes shorten: 1990s seasons spanned ~20 to ~60-point margins routinely, while 2020s seasons cluster tighter around the median, with blowouts much rarer.
     </p>
     <figure class="chart big-chart" id="chart-13"></figure>
     <p class="caption">
-      Navy is a home-team win, red is an away-team win, gold is a draw. Hover for the matchup.
+      One box per season, 36 boxes in total. Mark types: bar (box) + rule (whiskers) + tick (median) + circle (outliers). The visible flattening since 2017 mirrors the average-margin line three charts above &mdash; the AFL has been steadily tightening competitive balance.
     </p>
   </section>
 
@@ -200,6 +253,6 @@
 
 </main>
 
-<script src="app.js"></script>
+<script src="app.js?v=12"></script>
 </body>
 </html>

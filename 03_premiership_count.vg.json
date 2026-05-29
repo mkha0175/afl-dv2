@@ -1,61 +1,56 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Total premierships per club, 1990-2025. Combined idiom: horizontal bar (total count) + dot strip (one circle per flag year along the bar). Hover a dot for the year and Grand Final result.",
+  "description": "Premiership trophy cabinet 1990-2025. Each Grand Final win is rendered as a single trophy emoji laid out in a row per club; clubs are sorted top-to-bottom by total flag count. Each trophy carries the winning year beneath it; the bold number at the right is the club's total. Hover any trophy for the full Grand Final result.",
   "width": "container",
-  "height": 380,
+  "height": {"step": 50},
   "background": "white",
+  "padding": {"top": 16, "left": 24, "right": 72, "bottom": 22},
   "config": {
     "view": {"stroke": null},
     "font": "Inter, system-ui, sans-serif"
   },
   "data": {"url": "premierships.csv"},
+  "transform": [
+    {"window": [
+       {"op": "row_number", "as": "trophy_idx"},
+       {"op": "count",     "as": "total"}
+     ], "groupby": ["winner"], "sort": [{"field": "year"}],
+     "frame": [null, null]}
+  ],
+  "encoding": {
+    "y": {"field": "winner", "type": "nominal",
+          "scale": {"domain": ["Brisbane Lions", "Hawthorn", "Geelong", "West Coast", "Collingwood", "Richmond", "Adelaide", "Essendon", "North Melbourne", "Sydney", "Carlton", "Melbourne", "Port Adelaide", "Western Bulldogs"]},
+          "title": null,
+          "axis": {"labelFontWeight": 700, "labelFontSize": 12, "labelPadding": 14,
+                   "ticks": false, "domain": false, "grid": false}},
+    "x": {"field": "trophy_idx", "type": "ordinal", "axis": null,
+          "scale": {"paddingInner": 0.1, "paddingOuter": 0.05}}
+  },
   "layer": [
     {
-      "transform": [
-        {"aggregate": [{"op": "count", "as": "n"}], "groupby": ["winner"]}
-      ],
-      "mark": {"type": "bar", "cornerRadiusEnd": 4, "height": {"band": 0.55}, "color": "#7A1F1F", "opacity": 0.18},
+      "mark": {"type": "text", "fontSize": 30, "baseline": "middle"},
       "encoding": {
-        "x": {"field": "n", "type": "quantitative", "title": "Premierships 1990 - 2025",
-              "axis": {"tickMinStep": 1, "grid": false}, "scale": {"domain": [0, 6]}},
-        "y": {"field": "winner", "type": "nominal", "sort": "-x", "title": null,
-              "axis": {"labelFontWeight": 600, "ticks": false, "domain": false}}
-      }
-    },
-    {
-      "transform": [
-        {"window": [{"op": "row_number", "as": "rank"}], "groupby": ["winner"], "sort": [{"field": "year"}]}
-      ],
-      "mark": {"type": "circle", "size": 260, "stroke": "white", "strokeWidth": 1.5},
-      "encoding": {
-        "x": {"field": "rank", "type": "quantitative", "axis": null, "scale": {"domain": [0, 6]}},
-        "y": {"field": "winner", "type": "nominal", "sort": {"field": "rank", "op": "max", "order": "descending"}},
-        "color": {"field": "winner", "type": "nominal",
-          "scale": {
-            "domain": ["Adelaide","Brisbane Lions","Carlton","Collingwood","Essendon","Geelong","Hawthorn","Melbourne","North Melbourne","Port Adelaide","Richmond","Sydney","West Coast","Western Bulldogs"],
-            "range":  ["#002B5C","#A30046","#031A29","#000000","#CC2031","#1C3C63","#4D2004","#0F1131","#013A81","#008AAB","#FFD200","#ED1B2F","#003087","#014A99"]
-          },
-          "legend": null},
+        "text": {"value": "🏆"},
         "tooltip": [
           {"field": "year", "title": "Year"},
           {"field": "winner", "title": "Premier"},
           {"field": "runner_up", "title": "Runner-up"},
-          {"field": "winner_score", "title": "Winning score"},
-          {"field": "loser_score", "title": "Losing score"},
+          {"field": "winner_score", "title": "Win score"},
+          {"field": "loser_score", "title": "Lose score"},
           {"field": "margin", "title": "Margin"}
         ]
       }
     },
     {
-      "transform": [
-        {"aggregate": [{"op": "count", "as": "n"}], "groupby": ["winner"]}
-      ],
-      "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 8, "fontWeight": 700, "color": "#1B1B1E", "fontSize": 12},
-      "encoding": {
-        "x": {"field": "n", "type": "quantitative"},
-        "y": {"field": "winner", "type": "nominal", "sort": "-x"},
-        "text": {"field": "n"}
-      }
+      "mark": {"type": "text", "fontSize": 9, "baseline": "middle", "dy": 19,
+               "color": "#7A8294", "fontWeight": 600},
+      "encoding": {"text": {"field": "year"}}
+    },
+    {
+      "transform": [{"filter": "datum.trophy_idx == datum.total"}],
+      "mark": {"type": "text", "fontSize": 22, "fontWeight": 800, "color": "#08152B",
+               "align": "left", "baseline": "middle", "dx": 32},
+      "encoding": {"text": {"field": "total"}}
     }
   ]
 }
